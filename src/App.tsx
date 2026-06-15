@@ -6,7 +6,6 @@ import { AdminPanel } from './components/AdminPanel';
 import type { StarterConfig, BOMItem, SummaryItem, Product } from './types';
 import { generateDetail, generateSummary, createLibraryIndex } from './utils/boq-logic';
 import { validateBOM, shouldBlockExport } from './utils/validation';
-import { exportToExcel } from './utils/excel-export';
 
 import { LayoutDashboard, FileText, Settings, Sun, Moon, Database } from 'lucide-react';
 import { useTheme } from './hooks/useTheme';
@@ -205,6 +204,7 @@ function App() {
     }
 
     try {
+      const { exportToExcel } = await import('./utils/excel-export');
       await exportToExcel(bomWithOverrides, summary, options);
       showToast("Export successful!", "success");
     } catch (error) {
