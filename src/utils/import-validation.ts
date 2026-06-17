@@ -49,7 +49,9 @@ export function sanitizeProduct(row: any): Product {
         ? (rawUnit as Unit)
         : 'Cái';
 
-    const price = Math.max(0, Number(row['Price'] || 0));
+    // Chuẩn hóa price: nếu NaN hoặc âm thì gán 0
+    const rawPrice = Number(row['Price']);
+    const price = (!isNaN(rawPrice) && rawPrice >= 0) ? rawPrice : 0;
 
     return {
         id: String(row['ID'] || '').trim() || crypto.randomUUID(),
@@ -83,7 +85,9 @@ export function sanitizeStarter(row: any): StarterConfig {
         : undefined;
 
     const power = Math.max(0.18, Number(row['Power'] || 0.18));
-    const quantity = Math.max(1, Math.round(Number(row['Quantity'] || 1)));
+    // Chuẩn hóa quantity: nếu NaN, âm hoặc bằng 0 thì gán mặc định là 1
+    const rawQuantity = Number(row['Quantity']);
+    const quantity = (!isNaN(rawQuantity) && rawQuantity > 0) ? Math.max(1, Math.round(rawQuantity)) : 1;
 
     return {
         id: crypto.randomUUID(),

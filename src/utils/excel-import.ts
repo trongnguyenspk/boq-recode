@@ -154,7 +154,9 @@ export async function importTemplatesFromExcel(file: File): Promise<Record<strin
                         const type = row['StarterType'];
                         const power = String(row['Power']);
                         const matchKey = row['ComponentMatchKey'];
-                        const qty = Number(row['Quantity'] || 1);
+                        // Chuẩn hóa qty: nếu NaN hoặc âm thì gán mặc định là 1
+                        const rawQty = Number(row['Quantity']);
+                        const qty = (!isNaN(rawQty) && rawQty > 0) ? Math.round(rawQty) : 1;
                         const condition = (row['Condition'] || 'always') as ComponentCondition;
 
                         if (!type || !power || !matchKey) return;
