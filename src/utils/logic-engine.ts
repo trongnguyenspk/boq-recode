@@ -9,6 +9,29 @@ const CURRENT_TRANSFORMER_RATIO_REGEX = /(\d+)\/5/;
 const LETTER_X_GLOBAL_INSENSITIVE_REGEX = /x/gi;
 const X_PARSING_REGEX = /^(\d+)\s*x\s*(.+)$/i;
 
+/**
+ * Kiểm tra xem mô tả (description) có chứa kích thước (targetSize) một cách chính xác hay không.
+ * Sử dụng Regex ranh giới số để tránh khớp nhầm, ví dụ: "10x20" không khớp "10x200" hay "100x20".
+ * @param description - Chuỗi mô tả linh kiện
+ * @param targetSize - Kích thước cần kiểm tra (ví dụ: "10x20")
+ * @returns true nếu khớp chính xác, false nếu không
+ */
+function isSizeMatch(description: string, targetSize: string): boolean {
+    if (!description || !targetSize) return false;
+    // Chuẩn hóa: xóa khoảng trắng thừa trong kích thước mục tiêu
+    const normalized = targetSize.replace(/\s+/g, '');
+    // Tách số chiều rộng (w) và số chiều cao (t) từ targetSize dạng "WxT"
+    const parts = normalized.match(/^(\d+)x(\d+)$/i);
+    if (!parts) {
+        // Không phải dạng NxM: so khớp thủ công bằng chuỗi chuẩn hóa
+        return description.replace(/\s+/g, '').toLowerCase().includes(normalized.toLowerCase());
+    }
+    const [, w, t] = parts;
+    // Regex: phải có ranh giới số ở hai đầu của chuỗi WxT để tránh khớp nhầm
+    const exactRegex = new RegExp(`(?:^|[^0-9])${w}\\s*[xX]\\s*${t}(?:$|[^0-9])`);
+    return exactRegex.test(description.replace(/\s+/g, ' '));
+}
+
 // --- Types ---
 export interface SelectionState {
     selectedItems: Set<string>;
@@ -64,7 +87,8 @@ function computeQtyValue(
             if (mainGroup) {
                 mainGroup.items.forEach(item => {
                     const key = item.ibomCode + item.productCode;
-                    if (selection.items.has(key) && item.description.replace(/\s+/g, '').toLowerCase().includes(targetSize.toLowerCase())) {
+                    // Sử dụng isSizeMatch để tránh khớp nhầm kích thước
+                    if (selection.items.has(key) && isSizeMatch(item.description, targetSize)) {
                         qty += (selection.quantities[key] || 0);
                     }
                 });
@@ -80,7 +104,8 @@ function computeQtyValue(
             if (mainGroupSplit) {
                 mainGroupSplit.items.forEach(item => {
                     const key = item.ibomCode + item.productCode;
-                    if (selection.items.has(key) && item.description.replace(/\s+/g, '').toLowerCase().includes(targetSizeSplit.toLowerCase())) {
+                    // Sử dụng isSizeMatch để tránh khớp nhầm kích thước
+                    if (selection.items.has(key) && isSizeMatch(item.description, targetSizeSplit)) {
                         qtySplit += (selection.quantities[key] || 0);
                     }
                 });
@@ -178,7 +203,11 @@ export function evaluateAutoSelection(
                     }
 
                     if (rule.strategy === 'SAME_RATING' && rating > 0) {
-                        let match = depGroup.items.find(i => i.ibomCode.includes(`${rating}/`) || i.description.includes(`${rating}/`));
+                        // Sử dụng Regex ranh giới số để tránh khớp nhầm, ví dụ: 10A không khớp 210A
+                        const exactRatingRegex = new RegExp(`(?:^|[^0-9])${rating}/`);
+                        let match = depGroup.items.find(i =>
+                            exactRatingRegex.test(i.ibomCode) || exactRatingRegex.test(i.description)
+                        );
                         if (!match) {
                             match = depGroup.items.find(i => {
                                 const m = i.description.match(CURRENT_TRANSFORMER_RATIO_REGEX);
@@ -191,7 +220,8 @@ export function evaluateAutoSelection(
                         const sizeMatch = productDesc.match(SIZE_MATCH_REGEX);
                         if (sizeMatch) {
                             const targetSize = sizeMatch[1].replace(/\s+/g, '');
-                            const match = depGroup.items.find(i => i.description.replace(/\s+/g, '').toLowerCase().includes(targetSize.toLowerCase()));
+                            // Sử dụng isSizeMatch để tránh khớp nhầm kích thước
+                            const match = depGroup.items.find(i => isSizeMatch(i.description, targetSize));
                             if (match) matchedItems.push(match);
                         }
 
@@ -262,7 +292,9 @@ export function evaluateAutoSelection(
                                             matchGroups.push(['xanh dương', 'blue']);
 
                                             if (isHeatShrinkRule) {
-                                                // For Heat Shrink: integer division qty/3 per color (not ceil!)
+                                                // Cho co nhiệt: qtyPerItem sẽ được tính riêng cho mỗi pha
+                                                // bằng thuật toán phân bổ phần dư để đảm bảo tổng chính xác.
+                                                // Giá trị tạm thời ở đây (sẽ bị ghi đè trong vòng lặp bên dưới).
                                                 qtyPerItem = Math.floor(qty / 3);
                                             } else {
                                                 // For Busbar: round to distribute evenly
@@ -310,6 +342,13 @@ export function evaluateAutoSelection(
                                         );
 
                                         if (hasColorMatch) {
+                                            // Thuật toán phân bổ phần dư co nhiệt lẻ:
+                                            // Phân phối phần dư (qty % 3) theo thứ tự: Đỏ (0) → Vàng (1) → Xanh dương (2)
+                                            // Công thức: mỗi pha nhận baseQty + (idx < remainder ? 1 : 0)
+                                            // Đảm bảo tổng số lượng luôn bằng qty gốc, không bị mất phần dư.
+                                            const baseQtyPerPhase = Math.floor(qty / 3);
+                                            const remainder = qty % 3;
+
                                             matchGroups.forEach((keywords, idx) => {
                                                 let bestMatch: CommonItem | undefined;
                                                 if (keywords.length > 0) {
@@ -318,14 +357,25 @@ export function evaluateAutoSelection(
                                                         const noteLower = (i.note || '').toLowerCase();
                                                         return keywords.some(k => descLower.includes(k) || noteLower.includes(k));
                                                     });
-                                                    console.log(`[DEBUG] Color Match ${idx}: keywords=${JSON.stringify(keywords)}, found=${bestMatch?.description || 'NONE'}, qtyPerItem=${qtyPerItem}`);
+                                                    // Tính số lượng cho từng pha, kể cả phần dư
+                                                    const phaseQty = isHeatShrinkRule
+                                                        ? baseQtyPerPhase + (idx < remainder ? 1 : 0)
+                                                        : qtyPerItem;
+                                                    console.log(`[DEBUG] Color Match ${idx}: keywords=${JSON.stringify(keywords)}, found=${bestMatch?.description || 'NONE'}, phaseQty=${phaseQty}`);
                                                 }
                                                 if (bestMatch) {
-                                                    matchedItems.push(bestMatch);
-                                                    const key = bestMatch.ibomCode + bestMatch.productCode;
-                                                    const prevQty = newQuantities[key] || 0;
-                                                    newQuantities[key] = prevQty + qtyPerItem;
-                                                    console.log(`[DEBUG] Added ${bestMatch.ibomCode}: prevQty=${prevQty}, adding=${qtyPerItem}, newQty=${newQuantities[key]}`);
+                                                    // Tính lại phaseQty tại đây để dùng trong block
+                                                    const phaseQty = isHeatShrinkRule
+                                                        ? baseQtyPerPhase + (idx < remainder ? 1 : 0)
+                                                        : qtyPerItem;
+                                                    // Chỉ thêm vào BOM nếu số lượng > 0
+                                                    if (phaseQty > 0) {
+                                                        matchedItems.push(bestMatch);
+                                                        const key = bestMatch.ibomCode + bestMatch.productCode;
+                                                        const prevQty = newQuantities[key] || 0;
+                                                        newQuantities[key] = prevQty + phaseQty;
+                                                        console.log(`[DEBUG] Added ${bestMatch.ibomCode}: prevQty=${prevQty}, adding=${phaseQty}, newQty=${newQuantities[key]}`);
+                                                    }
                                                 }
                                             });
 
