@@ -78,18 +78,30 @@ function App() {
   const [boqViewMode, setBoqViewMode] = useState<'detail' | 'summary'>('detail');
   const [activeTab, setActiveTab] = useState<'boq' | 'common'>('boq');
 
+  // Toast hook - khai báo sớm để các useEffect lưu trữ có thể sử dụng
+  const { showToast } = useToast();
+
   // Persist Data Changes
   useEffect(() => {
-    safeSaveToStorage('boq_library', JSON.stringify(library));
-  }, [library]);
+    const ok = safeSaveToStorage('boq_library', JSON.stringify(library));
+    if (!ok) {
+      showToast('⚠️ Không thể lưu thư viện sản phẩm do bộ nhớ trình duyệt đã đầy! Vui lòng xuất backup hoặc xóa bớt dữ liệu cũ.', 'error');
+    }
+  }, [library, showToast]);
 
   useEffect(() => {
-    safeSaveToStorage('boq_templates', JSON.stringify(templates));
-  }, [templates]);
+    const ok = safeSaveToStorage('boq_templates', JSON.stringify(templates));
+    if (!ok) {
+      showToast('⚠️ Không thể lưu template do bộ nhớ trình duyệt đã đầy! Vui lòng xuất backup hoặc xóa bớt dữ liệu cũ.', 'error');
+    }
+  }, [templates, showToast]);
 
   useEffect(() => {
-    safeSaveToStorage('boq_brands', JSON.stringify(brands));
-  }, [brands]);
+    const ok = safeSaveToStorage('boq_brands', JSON.stringify(brands));
+    if (!ok) {
+      showToast('⚠️ Không thể lưu cấu hình nhãn hàng do bộ nhớ trình duyệt đã đầy! Vui lòng xuất backup hoặc xóa bớt dữ liệu cũ.', 'error');
+    }
+  }, [brands, showToast]);
 
   // Performance Optimization: Index library for O(1) lookups
   const libraryIndex = useMemo(() => createLibraryIndex(library), [library]);
@@ -181,8 +193,6 @@ function App() {
       return next;
     });
   };
-
-  const { showToast } = useToast();
 
   const handleExportExcel = async () => {
     // Check for critical errors before export
