@@ -9,6 +9,7 @@ import type {
 } from '../types';
 import { normalizePowerKey } from '../types';
 import { isBrandSensitive, normalizeMatchKey, pickPreferredProduct } from './brand-policy';
+import { generateSummary } from './boq-logic';
 import * as XLSX from 'xlsx';
 
 export async function exportInputToExcel(starters: StarterConfig[]) {
@@ -151,6 +152,44 @@ function isMissingProductCode(value: unknown): boolean {
     return String(value ?? '').trim().toUpperCase() === 'NOT_FOUND';
 }
 
+/** P1.3: khóa tổng hợp của một dòng Summary — đúng quy tắc generateSummary. */
+function summaryKeyOf(item: SummaryItem): string {
+    return (item.ibomCode && item.ibomCode !== 'N/A')
+        ? item.ibomCode
+        : (item.productCode ? item.productCode : `NO_CODE_${item.description}`);
+}
+
+/**
+ * P1.3: Summary là dẫn xuất của Detail. Chặn export khi Summary do caller
+ * truyền không khớp aggregate kỳ vọng derive từ Detail (stale/thiếu/thừa/sai qty).
+ */
+function reconcileSummary(expected: SummaryItem[], actual: SummaryItem[]): void {
+    const EPS = 1e-9;
+    const sum = (list: SummaryItem[]) => {
+        const m = new Map<string, number>();
+        list.forEach(i => {
+            const k = summaryKeyOf(i);
+            m.set(k, (m.get(k) ?? 0) + i.totalQuantity);
+        });
+        return m;
+    };
+    const exp = sum(expected);
+    const act = sum(actual);
+    const diffs: string[] = [];
+    for (const k of new Set([...exp.keys(), ...act.keys()])) {
+        const e = exp.get(k);
+        const a = act.get(k);
+        if (e === undefined) diffs.push(`thừa "${k}"`);
+        else if (a === undefined) diffs.push(`thiếu "${k}"`);
+        else if (Math.abs(e - a) > EPS) diffs.push(`"${k}" lệch (Detail=${e}, Summary=${a})`);
+    }
+    if (diffs.length > 0) {
+        const shown = diffs.slice(0, 5).join('; ');
+        const more = diffs.length > 5 ? ` …(+${diffs.length - 5})` : '';
+        throw new Error(`Không thể xuất BOQ [SUMMARY_DETAIL_MISMATCH]: Summary không khớp Detail — ${shown}${more}.`);
+    }
+}
+
 export interface PreparedExportRows {
     /** Detail rows that are enabled for output (quantity > 0). */
     detail: BOMItem[];
@@ -181,10 +220,19 @@ export function prepareExportRows(
         throw new Error('Không thể xuất BOQ: có tổng khối lượng không hợp lệ.');
     }
 
-    return {
-        detail: bom.filter(item => item.quantity > 0 && !isMissingProductCode(item.productCode)),
-        summary: summary.filter(item => item.totalQuantity > 0 && !isMissingProductCode(item.productCode)),
-    };
+    const detail = bom.filter(item => item.quantity > 0 && !isMissingProductCode(item.productCode));
+
+    // P1.3: Summary là DẪN XUẤT của Detail — derive lại theo đúng generateSummary
+    // để output luôn khớp Detail, thay vì tin mảng summary do caller truyền.
+    const derivedSummary = generateSummary(bom);
+
+    // Nếu caller có truyền Summary, reconcile với aggregate kỳ vọng; lệch => chặn.
+    if (summary.length > 0) {
+        const callerSummary = summary.filter(item => item.totalQuantity > 0 && !isMissingProductCode(item.productCode));
+        reconcileSummary(derivedSummary, callerSummary);
+    }
+
+    return { detail, summary: derivedSummary };
 }
 
 function assertValidationGate(options?: ExportOptions): void {

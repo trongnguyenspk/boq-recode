@@ -158,4 +158,41 @@ describe('prepareExportRows', () => {
         expect(prepared.detail.map(row => row.id)).toEqual(['line-1']);
         expect(prepared.summary.map(row => row.id)).toEqual(['IB-1']);
     });
+
+    // P1.3: Summary phải derive từ Detail; caller Summary lệch => chặn export.
+    it('derives Summary from Detail when caller passes no summary', () => {
+        const prepared = prepareExportRows([detailItem()], []);
+        expect(prepared.summary).toHaveLength(1);
+        expect(prepared.summary[0].ibomCode).toBe('IB-1');
+        expect(prepared.summary[0].totalQuantity).toBe(2);
+    });
+
+    it('passes reconciliation when caller Summary matches Detail aggregate', () => {
+        const prepared = prepareExportRows([detailItem()], [summaryItem()]);
+        expect(prepared.summary.map(r => r.id)).toEqual(['IB-1']);
+        expect(prepared.summary[0].totalQuantity).toBe(2);
+    });
+
+    it('blocks a stale Summary total that disagrees with Detail', () => {
+        expect(() => prepareExportRows([detailItem()], [summaryItem({ totalQuantity: 5 })]))
+            .toThrow('SUMMARY_DETAIL_MISMATCH');
+    });
+
+    it('blocks when caller Summary is missing a key present in Detail', () => {
+        // Detail has IB-1; caller Summary only lists an unrelated IB-2.
+        expect(() => prepareExportRows(
+            [detailItem()],
+            [summaryItem({ id: 'IB-2', ibomCode: 'IB-2', productCode: 'P-2' })],
+        )).toThrow('SUMMARY_DETAIL_MISMATCH');
+    });
+
+    it('aggregates multiple Detail rows of the same key before comparing', () => {
+        // Two DOL starters contribute qty 2 each to IB-1 => expected total 4.
+        const prepared = prepareExportRows(
+            [detailItem(), detailItem({ id: 'line-2', starterId: 'starter-2' })],
+            [summaryItem({ totalQuantity: 4 })],
+        );
+        expect(prepared.summary).toHaveLength(1);
+        expect(prepared.summary[0].totalQuantity).toBe(4);
+    });
 });
