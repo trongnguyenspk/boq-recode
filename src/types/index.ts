@@ -79,6 +79,10 @@ export interface StarterConfig {
     power?: PowerValue; // kW (legacy alias; omitted when `powerKey` is persisted)
     /** Canonical key may be populated by migrated project data. */
     powerKey?: PowerKey;
+    /** P1.2 (PA-1): opaque tier selector (free string). Falls back to normalized power when absent. */
+    tierKey?: string;
+    /** P1.2 (PA-1): free-text display of công suất; hiển thị thôi, KHÔNG dùng để tính toán. */
+    powerLabel?: string;
     quantity: number;
     brand: Brand;
     isolator: boolean;

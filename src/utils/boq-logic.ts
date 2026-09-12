@@ -288,6 +288,14 @@ function getLegacyTemplate(
     const byPower = templates?.[type];
     if (!byPower) return {};
 
+    // P1.2 (PA-1): exact tierKey match first (hỗ trợ khóa tier tự do/opaque),
+    // sau đó mới tới đường so khớp normalized power cũ (tương thích dữ liệu số cũ).
+    if (Object.prototype.hasOwnProperty.call(byPower, powerKey)) {
+        const tierId = `${type}:${powerKey}`;
+        const lines = normalizeTemplateLines(type, powerKey, tierId, byPower[powerKey] || [], diagnostics);
+        return { tierId, lines };
+    }
+
     const candidates = Object.entries(byPower)
         .filter(([rawPower]) => normalizePowerKey(rawPower) === powerKey);
     if (candidates.length === 0) return {};
@@ -454,7 +462,10 @@ export function generateDetailWithDiagnostics(
     const libArray = isArray ? library as Product[] : [];
 
     (starters || []).forEach(starter => {
-        const powerKey = normalizePowerKey(starter?.powerKey ?? starter?.power);
+        // P1.2 (PA-1): tier selector = tierKey tự do nếu có, else normalized power (legacy).
+        const powerKey = (typeof starter?.tierKey === 'string' && starter.tierKey.trim())
+            ? starter.tierKey.trim()
+            : normalizePowerKey(starter?.powerKey ?? starter?.power);
         if (!powerKey) {
             diagnostics.push(diagnostic('INVALID_POWER', `Invalid power for starter ${starter?.id || '(unknown)'}`, {
                 starterId: starter?.id,
@@ -485,7 +496,11 @@ export function generateDetailWithDiagnostics(
             }));
         }
         const safeStarterQuantity = Number.isFinite(starterQuantity) && starterQuantity > 0 ? starterQuantity : 0;
-        const starterName = `${starter.type} - ${powerKey}kW`;
+        // P1.2 (PA-1): powerLabel là text hiển thị tự do; fallback `${powerKey}kW` giữ nguyên tên cũ.
+        const powerLabel = (typeof starter?.powerLabel === 'string' && starter.powerLabel.trim())
+            ? starter.powerLabel.trim()
+            : `${powerKey}kW`;
+        const starterName = `${starter.type} - ${powerLabel}`;
 
         resolved.lines.forEach(line => {
             if (!conditionMatches(line.condition, starter, {
