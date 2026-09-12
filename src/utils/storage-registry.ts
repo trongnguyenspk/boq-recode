@@ -1,6 +1,5 @@
 import type {
     BOMItem,
-    CommonGroup,
     MatchKeyMetaMap,
     Product,
     Project,
@@ -23,7 +22,7 @@ export const PROJECT_STORAGE_KEY = 'boq_projects';
 export const UNDO_SNAPSHOT_KEY = 'boq_undo_snapshot';
 export const UNDO_SNAPSHOT_VERSION = 1;
 
-export const LEGACY_DEAD_STORAGE_KEYS = ['boq_manual_items', 'boq_bom_overrides'] as const;
+export const LEGACY_DEAD_STORAGE_KEYS = ['boq_manual_items', 'boq_bom_overrides', 'boq_common_groups', 'logicConfig'] as const;
 
 export interface TemplateLineRecord {
     id?: string;
@@ -45,8 +44,6 @@ export interface BackupCatalog {
     templates: StoredTemplateCatalog;
     brands: string[];
     matchKeyMeta: MatchKeyMetaMap;
-    commonGroups: CommonGroup[];
-    logicConfig: Record<string, unknown>;
     schemaVersion: number;
 }
 
@@ -123,8 +120,6 @@ export const SOURCE_STORAGE_REGISTRY: readonly RegistryEntry[] = [
     { field: 'templates', key: 'boq_templates', defaultValue: () => ({}) },
     { field: 'brands', key: 'boq_brands', defaultValue: () => [] },
     { field: 'matchKeyMeta', key: 'boq_matchkey_meta', defaultValue: () => ({}) },
-    { field: 'commonGroups', key: 'boq_common_groups', defaultValue: () => [] },
-    { field: 'logicConfig', key: 'logicConfig', defaultValue: () => ({}) },
     { field: 'schemaVersion', key: 'boq_schema_version', defaultValue: () => CATALOG_SCHEMA_VERSION },
 ];
 
@@ -284,41 +279,6 @@ function validateMatchKeyMeta(value: unknown, errors: string[]): value is MatchK
     return true;
 }
 
-function validateCommonGroups(value: unknown, errors: string[]): boolean {
-    if (!Array.isArray(value)) {
-        errors.push('catalog.commonGroups must be an array');
-        return false;
-    }
-    value.forEach((group, groupIndex) => {
-        const path = `catalog.commonGroups[${groupIndex}]`;
-        if (!isRecord(group) || !hasSafeKeys(group)) {
-            errors.push(`${path} must be an object`);
-            return;
-        }
-        if (!isNonEmptyString(group.id)) errors.push(`${path}.id is required`);
-        if (typeof group.logicText !== 'string') errors.push(`${path}.logicText must be a string`);
-        if (!isNonEmptyString(group.logicType)) errors.push(`${path}.logicType is required`);
-        if (!Array.isArray(group.items)) {
-            errors.push(`${path}.items must be an array`);
-            return;
-        }
-        group.items.forEach((item, itemIndex) => {
-            const itemPath = `${path}.items[${itemIndex}]`;
-            if (!isRecord(item) || !hasSafeKeys(item)) {
-                errors.push(`${itemPath} must be an object`);
-                return;
-            }
-            for (const field of ['ibomCode', 'description', 'productCode', 'brand', 'unit', 'note']) {
-                if (typeof item[field] !== 'string') errors.push(`${itemPath}.${field} must be a string`);
-            }
-            if (item.quantity !== undefined && (!isFiniteNumber(item.quantity) || item.quantity < 0)) {
-                errors.push(`${itemPath}.quantity must be non-negative`);
-            }
-        });
-    });
-    return true;
-}
-
 function validateSignals(value: unknown, path: string, errors: string[]): boolean {
     if (!isRecord(value) || !hasSafeKeys(value)) {
         errors.push(`${path} must be an object`);
@@ -436,8 +396,6 @@ function validateCatalog(value: unknown, errors: string[]): value is BackupCatal
     validateTemplateCatalog(value.templates, errors);
     if (!Array.isArray(value.brands) || value.brands.some(brand => !isNonEmptyString(brand))) errors.push('catalog.brands must be an array of strings');
     validateMatchKeyMeta(value.matchKeyMeta, errors);
-    validateCommonGroups(value.commonGroups, errors);
-    if (!isRecord(value.logicConfig) || !hasSafeKeys(value.logicConfig)) errors.push('catalog.logicConfig must be an object');
     if (typeof value.schemaVersion !== 'number' || !Number.isInteger(value.schemaVersion) || value.schemaVersion < 1) {
         errors.push('catalog.schemaVersion must be a positive integer');
     }

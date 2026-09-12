@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { InputWizard } from './components/InputWizard';
 import { DetailView } from './components/DetailView';
 import { SummaryView } from './components/SummaryView';
@@ -13,7 +13,6 @@ import { useTheme } from './hooks/useTheme';
 import { PRODUCT_LIBRARY, STARTER_TEMPLATES } from './data/library';
 import { useToast } from './components/ui/Toast';
 
-import type { CommonItem, Unit } from './types';
 import { BackupRestoreModal } from './components/BackupRestoreModal';
 import { ValidationWarnings } from './components/ValidationWarnings';
 import { ProjectSelector } from './components/ProjectSelector';
@@ -36,17 +35,6 @@ import {
   type WorkbookState,
 } from './utils/workbook-pipeline';
 import { WorkbookTransferModal } from './components/WorkbookTransferModal';
-
-// PA B: cờ bật/tắt tab "Common Logic". Đặt false để ẩn (giữ nguyên toàn bộ file & dữ liệu).
-// Bật lại chỉ cần đổi thành true.
-const ENABLE_COMMON_LOGIC = false;
-
-// Keep the Common Logic implementation out of the initial BOQ bundle while it
-// remains available for a later, separately validated feature rollout.
-const CommonView = lazy(async () => {
-  const module = await import('./components/CommonView');
-  return { default: module.CommonView };
-});
 
 // Brand model (PLAN-BRAND-MODEL-2026-09-11): cờ an toàn.
 // Đặt false ⇒ `matchKeyMeta` không được truyền xuống BOQ engine nữa, mọi thứ rơi về
@@ -160,7 +148,6 @@ function App() {
   const [workbookBusy, setWorkbookBusy] = useState(false);
   const [canUndoWorkbook, setCanUndoWorkbook] = useState(false);
   const [boqViewMode, setBoqViewMode] = useState<'detail' | 'summary'>('detail');
-  const [activeTab, setActiveTab] = useState<'boq' | 'common'>('boq');
   const workbookInputRef = useRef<HTMLInputElement>(null);
   const workbookUndoRef = useRef<WorkbookUndoState | null>(null);
 
@@ -585,24 +572,6 @@ function App() {
     }
   };
 
-  const handleAddToDetail = (items: CommonItem[]) => {
-    const newManualItems: BOMItem[] = items.map(item => ({
-      id: `common-${Date.now()}-${Math.random()}`,
-      starterId: 'common',
-      starterName: 'Common Items',
-      ibomCode: item.ibomCode,
-      productCode: item.productCode,
-      description: item.description,
-      brand: item.brand,
-      unit: item.unit as Unit, // Cast to Unit
-      quantity: item.quantity || 1, // Use item quantity or default to 1
-      loadName: item.note
-    }));
-
-    setManualItems(prev => [...prev, ...newManualItems]);
-    showToast(`Added ${items.length} items to Detail`, "success");
-  };
-
   // Handler for loading project data
   const handleLoadProject = (loadedStarters: StarterConfigType[], loadedManualItems: BOMItemType[], loadedOverrides: Record<string, number> = {}) => {
     setStarters(loadedStarters);
@@ -654,23 +623,6 @@ function App() {
           {/* Project Metadata Display (P2.2 Feature) */}
           <ProjectMetadataDisplay />
 
-          {/* Navigation Tabs */}
-          <div className="flex bg-blue-900/50 p-1 rounded-lg">
-            <button
-              onClick={() => setActiveTab('boq')}
-              className={`px-4 py-2 rounded-md transition-all ${activeTab === 'boq' ? 'bg-white text-blue-900 shadow' : 'text-blue-200 hover:text-white'}`}
-            >
-              BOQ Builder
-            </button>
-            {ENABLE_COMMON_LOGIC && (
-              <button
-                onClick={() => setActiveTab('common')}
-                className={`px-4 py-2 rounded-md transition-all ${activeTab === 'common' ? 'bg-white text-blue-900 shadow' : 'text-blue-200 hover:text-white'}`}
-              >
-                Common Logic
-              </button>
-            )}
-          </div>
 
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-4">
@@ -763,7 +715,6 @@ function App() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        {(activeTab === 'boq' || !ENABLE_COMMON_LOGIC) ? (
           <>
             {/* Validation Warnings */}
             <ValidationWarnings
@@ -795,11 +746,6 @@ function App() {
               </div>
             </div>
           </>
-        ) : (
-          <Suspense fallback={null}>
-            <CommonView onAddToDetail={handleAddToDetail} library={library} onImportToLibrary={handleImportToLibrary} />
-          </Suspense>
-        )}
       </main>
 
       {/* Admin Modal */}

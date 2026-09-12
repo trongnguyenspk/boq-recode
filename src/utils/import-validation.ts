@@ -105,7 +105,7 @@ export function validateBackupJSON(backup: any): boolean {
     const { data } = backup;
     
     // Check specific keys in data if they exist, must be valid JSON strings
-    const keysToCheck = ['commonGroups', 'logicConfig', 'library', 'templates', 'brands', 'projects', 'manualItems', 'bomOverrides', 'matchKeyMeta'];
+    const keysToCheck = ['library', 'templates', 'brands', 'projects', 'manualItems', 'bomOverrides', 'matchKeyMeta'];
     for (const key of keysToCheck) {
         if (data[key] !== undefined && data[key] !== null) {
             if (typeof data[key] !== 'string') return false;

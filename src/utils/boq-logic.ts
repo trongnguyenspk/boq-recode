@@ -607,7 +607,7 @@ function overrideDetail(
         // Manual rows own their quantity in the project source.  Applying a
         // generated-row override to them would make the displayed value drift
         // from the source and would be impossible to explain on re-compute.
-        if (item.source !== 'generated' && item.source !== 'common') {
+        if (item.source !== 'generated') {
             return item;
         }
         const raw = overrides[item.id];
@@ -634,7 +634,7 @@ function addOrphanOverrideDiagnostics(
             }));
         }
         if (item) {
-            if (item.source !== 'generated' && item.source !== 'common') {
+            if (item.source !== 'generated') {
                 diagnostics.push(diagnostic('MANUAL_QUANTITY_OVERRIDE', `Quantity override targets a manual BOQ line: ${id}`, {
                     starterId: item.starterId,
                     matchKey: item.matchKey,

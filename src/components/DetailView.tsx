@@ -53,7 +53,7 @@ export function DetailView({ starters, bom, manualItems = [], onUpdateStarter, o
                 Detail View (Chi tiết vật tư)
             </h2>
             <div className="p-4 border border-t-0 border-gray-200 dark:border-gray-700 rounded-b-lg space-y-4">
-                {/* Manual / Common Items Section */}
+                {/* Manual Items Section */}
                 {manualItems.length > 0 && (
                     <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
                         <div
@@ -63,7 +63,7 @@ export function DetailView({ starters, bom, manualItems = [], onUpdateStarter, o
                             <div className="flex items-center gap-2">
                                 {isManualOpen ? <ChevronDown className="w-5 h-5 text-purple-600 dark:text-purple-400" /> : <ChevronRight className="w-5 h-5 text-gray-500 dark:text-gray-400" />}
                                 <span className="font-medium text-purple-800 dark:text-purple-300">
-                                    Common / Manual Items (Qty: {manualItems.length})
+                                    Manual Items (Qty: {manualItems.length})
                                 </span>
                             </div>
                         </div>

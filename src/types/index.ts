@@ -114,7 +114,7 @@ export interface BOMItem {
     /** Stable source identity for generated rows; absent on old/manual rows. */
     templateLineId?: string;
     /** Distinguishes generated rows from manually added project rows. */
-    source?: 'generated' | 'manual' | 'common';
+    source?: 'generated' | 'manual';
     /** Quantity before a project override, useful to explain a changed row. */
     defaultQuantity?: number;
 }
@@ -160,25 +160,6 @@ export interface TemplateItem {
     matchKey: string;
     qty: number;
     condition?: ComponentCondition;
-}
-
-export type LogicType = 'APPLY_ALL' | 'SELECT_ONE' | 'DEPENDENT' | 'LOOKUP' | 'UNKNOWN' | 'SIMPLE';
-
-export interface CommonItem {
-    ibomCode: string;
-    description: string;
-    productCode: string;
-    brand: string;
-    unit: string;
-    note: string;
-    quantity?: number;
-}
-
-export interface CommonGroup {
-    id: string;
-    logicText: string;
-    logicType: LogicType;
-    items: CommonItem[];
 }
 
 // ============================================
@@ -233,7 +214,7 @@ export interface Project {
     id: string;
     metadata: ProjectMetadata;
     starters: StarterConfig[];
-    manualItems?: BOMItem[];     // Common items added manually
+    manualItems?: BOMItem[];     // Manually added BOM items
     bomQuantityOverrides?: Record<string, number>; // User overrides for cable quantities
 }
 
