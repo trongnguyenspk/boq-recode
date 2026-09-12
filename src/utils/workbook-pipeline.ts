@@ -961,7 +961,8 @@ function validateIncomingRows(rows: WorkbookRows, state: WorkbookState, issues: 
         if (!condition) issues.push(issueForRow('Templates', row, index + 2, 'INVALID_CONDITION', `Condition must be one of: ${VALID_CONDITIONS.join(', ')}`, 'error'));
         const quantity = Number(row.Quantity);
         const isTierClear = action === 'replace-tier' && row.StarterType && row.Power && !row.ComponentMatchKey;
-        if (!isTierClear && (!Number.isFinite(quantity) || quantity <= 0)) issues.push(issueForRow('Templates', row, index + 2, 'INVALID_QUANTITY', 'Template Quantity must be a positive number', 'warning'));
+        // P1.4: qty template sai là LỖI CHẶN, không normalize thầm thành 1 khi Apply.
+        if (!isTierClear && (!Number.isFinite(quantity) || quantity <= 0)) issues.push(issueForRow('Templates', row, index + 2, 'INVALID_QUANTITY', 'Template Quantity must be a positive number', 'error'));
         if (!row.StarterType || !row.Power || (!row.ComponentMatchKey && !isTierClear)) issues.push(issueForRow('Templates', row, index + 2, 'INVALID_TEMPLATE_ROW', 'StarterType, Power and ComponentMatchKey are required (or a blank replace-tier row to clear a tier)', 'error'));
         if (row.ComponentMatchKey && !knownMatchKeys.has(normalizeMatchKey(row.ComponentMatchKey))) issues.push(issueForRow('Templates', row, index + 2, 'UNKNOWN_MATCH_KEY', `Template references unknown MatchKey ${row.ComponentMatchKey}`, 'warning'));
     });
@@ -1005,7 +1006,8 @@ function validateIncomingRows(rows: WorkbookRows, state: WorkbookState, issues: 
         const row = canonicalRow('Starters', rawRow);
         if (actionOf(row) === 'skip' || actionOf(row) === 'delete') return;
         if (!row.RowKey || !row.Type || !row.Power) issues.push(issueForRow('Starters', row, index + 2, 'INVALID_STARTER_ROW', 'RowKey, Type and Power are required', 'error'));
-        if (!Number.isFinite(Number(row.Quantity)) || Number(row.Quantity) <= 0) issues.push(issueForRow('Starters', row, index + 2, 'INVALID_STARTER_QUANTITY', 'Starter Quantity must be a positive number', 'warning'));
+        // P1.4: qty starter sai là LỖI CHẶN, không normalize thầm thành 1 khi Apply.
+        if (!Number.isFinite(Number(row.Quantity)) || Number(row.Quantity) <= 0) issues.push(issueForRow('Starters', row, index + 2, 'INVALID_STARTER_QUANTITY', 'Starter Quantity must be a positive number', 'error'));
         if (row.Brand && !knownBrands.has(normalized(row.Brand))) issues.push(issueForRow(
             'Starters',
             row,

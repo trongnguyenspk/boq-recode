@@ -236,7 +236,7 @@ describe('generic workbook pipeline', () => {
         ]));
     });
 
-    it('normalizes non-positive template and starter quantities to one after warning', () => {
+    it('blocks apply when template/starter quantity is non-positive (P1.4)', () => {
         const incoming = emptyIncomingRows();
         incoming.Starters = [{
             Action: 'upsert', RowKey: 'starter-1', Type: 'DOL', Power: '5.5', Quantity: 0,
@@ -249,14 +249,32 @@ describe('generic workbook pipeline', () => {
         }];
 
         const diff = buildWorkbookDiff(sampleState(), incoming);
+        // P1.4: qty sai giờ là error (chặn Apply), không còn warning + normalize->1.
         expect(diff.issues).toEqual(expect.arrayContaining([
-            expect.objectContaining({ code: 'INVALID_STARTER_QUANTITY', severity: 'warning' }),
-            expect.objectContaining({ code: 'INVALID_QUANTITY', severity: 'warning' }),
+            expect.objectContaining({ code: 'INVALID_STARTER_QUANTITY', severity: 'error' }),
+            expect.objectContaining({ code: 'INVALID_QUANTITY', severity: 'error' }),
         ]));
+        // Apply bị chặn; không normalize thầm thành 1.
+        expect(() => applyWorkbookDiff(sampleState(), diff)).toThrow(/Cannot apply workbook diff/);
+    });
 
+    it('still applies a valid positive template/starter quantity (P1.4 regression)', () => {
+        const incoming = emptyIncomingRows();
+        incoming.Starters = [{
+            Action: 'upsert', RowKey: 'starter-1', Type: 'DOL', Power: '5.5', Quantity: 3,
+            Brand: 'Schneider', Isolator: 'No', Thermal: 'No', PTC: 'No', Estop: 'No',
+            Humidity: 'No', IsolatorBFP: 'No', EstopBFP: 'No', IsolatorEstopFB: 'No',
+        }];
+        incoming.Templates = [{
+            Action: 'upsert', StarterType: 'DOL', Power: '5.5', ComponentMatchKey: 'CONTACTOR_9A',
+            Quantity: 2, Condition: 'always', TemplateLineId: 'line-1',
+        }];
+
+        const diff = buildWorkbookDiff(sampleState(), incoming);
+        expect(diff.issues.some(i => i.code === 'INVALID_STARTER_QUANTITY' || i.code === 'INVALID_QUANTITY')).toBe(false);
         const next = applyWorkbookDiff(sampleState(), diff);
-        expect(next.project?.starters[0].quantity).toBe(1);
-        expect(next.templates.DOL['5.5'][0].qty).toBe(1);
+        expect(next.project?.starters[0].quantity).toBe(3);
+        expect(next.templates.DOL['5.5'][0].qty).toBe(2);
     });
 
     it('rejects a diff with an unsupported schema version before applying', () => {
