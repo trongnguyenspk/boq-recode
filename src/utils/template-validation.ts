@@ -112,7 +112,9 @@ export function validateTemplate(template: unknown): TemplateValidationResult {
                     });
                 }
 
-                if (typeof c.qty !== 'number' || c.qty <= 0) {
+                // P1.1: NaN/Infinity lọt qua check cũ vì `typeof NaN === 'number'` và
+                // `NaN <= 0 === false`. Thêm Number.isFinite để chặn NaN/±Infinity.
+                if (typeof c.qty !== 'number' || !Number.isFinite(c.qty) || c.qty <= 0) {
                     errors.push({
                         path: `ratings.${rating}[${idx}].qty`,
                         message: 'Component qty must be a positive number'

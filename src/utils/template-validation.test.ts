@@ -94,6 +94,38 @@ describe('Template Validation Utilities', () => {
             const errorMsg = result.errors[0].message;
             expect(errorMsg).toContain('Component qty must be a positive number');
         });
+
+        // P1.1: NaN/Infinity phải invalid (trước đây lọt qua vì typeof NaN === 'number').
+        it.each([
+            ['NaN', NaN],
+            ['Infinity', Infinity],
+            ['-Infinity', -Infinity],
+        ])('should fail if qty is %s', (_label, badQty) => {
+            const invalid = {
+                type: 'DOL',
+                name: 'Test',
+                ratings: {
+                    '15kW': [{ matchKey: 'MK1', qty: badQty }]
+                }
+            };
+            const result = validateTemplate(invalid as any);
+            expect(result.valid).toBe(false);
+            const errorMsg = result.errors.find(e => e.path.includes('qty'))?.message;
+            expect(errorMsg).toContain('Component qty must be a positive number');
+        });
+
+        // P1.1: giá trị dương hữu hạn (kể cả thập phân) vẫn hợp lệ — không regress template tốt.
+        it('should pass for a positive finite decimal qty', () => {
+            const valid = {
+                type: 'DOL',
+                name: 'Test',
+                ratings: {
+                    '15kW': [{ matchKey: 'MK1', qty: 2.5 }]
+                }
+            };
+            const result = validateTemplate(valid as any);
+            expect(result.valid).toBe(true);
+        });
     });
 
     // P0-1: bảo đảm `condition` không bị mất khi round-trip qua JSON editor
