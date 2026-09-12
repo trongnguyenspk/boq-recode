@@ -1,0 +1,2199 @@
+[
+  {
+    "id": "GRP_1",
+    "logicText": "Chỉ chọn 1 trong các option này\nCần tạo ra: textbox nhập số khung, số mặt tủ để tính toán lọc bụi, quạt, đèn, công tắc hành trình",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": " W800xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W800xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W800xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W1600xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W1600xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W1600xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W2400xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W2400xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W2400xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3200xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W3200xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W3200xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3600xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W3600xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W3600xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W900xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W900xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W900xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W1800xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W1800xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W1800xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W2700xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W2700xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W2700xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3600xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W3600xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W3600xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W4500xH2100xD600x2.0mm_7032",
+        "description": "Vỏ tủ điện W4500xH2100xD600x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W4500xH2100xD600x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W800xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W800xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W800xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W1600xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W1600xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W1600xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W2400xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W2400xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W2400xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3200xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W3200xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W3200xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W4000xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W4000xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W4000xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W900xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W900xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W900xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W1800xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W1800xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W1800xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W2700xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W2700xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W2700xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3600xH2100xD900x2.0mm_7032",
+        "description": "Vỏ tủ điện W3600xH2100xD900x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W3600xH2100xD900x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W4500xH2100xD800x2.0mm_7032",
+        "description": "Vỏ tủ điện W4500xH2100xD800x2.0mm, tủ khung, màu RAL 7032",
+        "productCode": "W4500xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": " W3600xH2100xD900x2.0mm_FF160.4002.C3 ",
+        "description": "Vỏ tủ điện W3200xH2100xD800x2.0mm, tủ khung, màu FF160/4002/C3 ",
+        "productCode": "W3200xH2100xD800x2.0mm",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_2",
+    "logicText": "số lượng tùy chọn (mặc định để 1)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "AGXY001",
+        "description": "Nhãn tên tủ điện",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Lô",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_3",
+    "logicText": "Người dùng tự tra mã trong product library",
+    "logicType": "UNKNOWN",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "CB tổng",
+        "productCode": "",
+        "brand": "",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "SHT",
+    "logicText": "Tự động sinh theo CB tổng",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Shuntrip",
+        "productCode": "",
+        "brand": "",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_5",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": 5094656,
+        "description": "Bộ chống sét lan truyền V20",
+        "productCode": 5094656,
+        "brand": "OBO",
+        "unit": "Bộ",
+        "note": ""
+      },
+      {
+        "ibomCode": 5093654,
+        "description": "Bộ chống sét lan truyền V50-B+C/3+NPE",
+        "productCode": 5093654,
+        "brand": "OBO",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_6",
+    "logicText": "số lượng tùy chọn (mặc định để 2)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "YW1P-1EQM3R",
+        "description": "Đèn báo pha đỏ, 220VAC, D22",
+        "productCode": "YW1P-1EQM3R",
+        "brand": "Idec",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_7",
+    "logicText": "số lượng tùy chọn (mặc định để 2)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "YW1P-1EQM3Y",
+        "description": "Đèn báo pha vàng, 220VAC, D22",
+        "productCode": "YW1P-1EQM3Y",
+        "brand": "Idec",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_8",
+    "logicText": "số lượng tùy chọn (mặc định để 2)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "YW1P-1EQM3S",
+        "description": "Đèn báo pha xanh dương, 220VAC, D22",
+        "productCode": "YW1P-1EQM3S",
+        "brand": "Idec",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_9",
+    "logicText": "Khối lượng bằng tổng 3 loại đèn báo pha ở trên",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "OMG-FS32X+OFL10x38-2A",
+        "description": "Cầu chì 2A",
+        "productCode": "OMG-FS32X+OFL10x38-2A",
+        "brand": "OMEGA",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_10",
+    "logicText": "số lượng tùy chọn (mặc định để 1)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "YW1B-V4E11R",
+        "description": "EMG Stop, D22, màu đỏ",
+        "productCode": "YW1B-V4E11R",
+        "brand": "Idec",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_11",
+    "logicText": "Khối lượng bằng \"Đèn báo động patlight, có chuông, màu đỏ 24VDC\"",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "YW1B-M1E11R",
+        "description": "Nút nhấn đèn patlight, D22",
+        "productCode": "YW1B-M1E11R",
+        "brand": "Idec",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_12",
+    "logicText": "số lượng tùy chọn (mặc định để 1)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "CHAE002",
+        "description": "Đèn báo động patlight, có chuông, màu đỏ 24VDC",
+        "productCode": "",
+        "brand": "China",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_13",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "1SVR730794R3300",
+        "description": "Thiết bị bảo vệ mất pha và đảo pha-A",
+        "productCode": "1SVR730794R3300",
+        "brand": "ABB",
+        "unit": "Bộ",
+        "note": ""
+      },
+      {
+        "ibomCode": "RM22TR33",
+        "description": "Thiết bị bảo vệ mất pha và đảo pha-S",
+        "productCode": "RM22TR33",
+        "brand": "Schneider",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_14",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "DPM680",
+        "description": "Bộ đo điện đa năng, TCP/IP",
+        "productCode": "DPM680",
+        "brand": "Mikro",
+        "unit": "Bộ",
+        "note": ""
+      },
+      {
+        "ibomCode": "RX380-415AD",
+        "description": "Bộ đo điện đa năng",
+        "productCode": "RX380-415AD",
+        "brand": "Mikro",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_15",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "R201-230A",
+        "description": "Bảo vệ chạm đất",
+        "productCode": "R201-230A",
+        "brand": "Mikro",
+        "unit": "Bộ",
+        "note": ""
+      },
+      {
+        "ibomCode": "R301-230A",
+        "description": "Bảo vệ chạm đất-ZCT",
+        "productCode": "R301-230A",
+        "brand": "Mikro",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_16",
+    "logicText": "Khối lượng bằng \"Bảo vệ chạm đất-ZCT\"",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "ZCT60S",
+        "description": "ZCT",
+        "productCode": "ZCT60S",
+        "brand": "Mikro",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_17_MCT",
+    "logicText": "MCT (Biến dòng) - Chọn loại phù hợp với dòng định mức CB",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "MCT_50-5_CL.3_5VA",
+        "description": "MCT, 50/5, CL.3-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_75-5_CL.3_5VA",
+        "description": "MCT đúc, có đế, 75/5, CL.3-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_100-5_CL.1_5VA",
+        "description": "MCT đúc, có đế, 100/5, CL.1-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_150-5_CL.1_5VA",
+        "description": "MCT đúc, có đế, 150/5, CL.1-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_200-5_CL.1_5VA",
+        "description": "MCT đúc, có đế, 200/5, CL.1-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_250-5_CL.1_5VA",
+        "description": "MCT đúc, có đế, 250/5, CL.1-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_300-5_CL.1_5VA",
+        "description": "MCT đúc, có đế, 300/5, CL.1-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_400-5_CL.1_15VA",
+        "description": "MCT đúc, có đế, 400/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_500-5_CL.1_15VA",
+        "description": "MCT đúc, có đế, 500/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_600-5_CL.1_15VA",
+        "description": "MCT đúc, có đế, 600/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_800-5_CL.1_15VA",
+        "description": "MCT đúc, có đế, 800/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_1000-5_CL.1_15VA",
+        "description": "MCT đúc, chữ nhật, 1000/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "MCT_1200-5_CL.1_15VA",
+        "description": "MCT đúc, chữ nhật, 1200/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "MCT_1200-5_CL.1_15VA",
+        "description": "MCT đúc, có đế, 1200/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "MCT_1600-5_CL.1_15VA",
+        "description": "MCT đúc, chữ nhật, 1600/5, CL.1-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "KBM-05-1000",
+        "description": "MCT 1000/5A CL.1 40VA, loại lắp cho thanh cái",
+        "productCode": "KBM-05-1000",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_17_PCT",
+    "logicText": "PCT (Biến dòng) - Chọn loại phù hợp với dòng định mức CB",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "PCT_100-5_CL.5P10_5VA",
+        "description": "PCT đúc, có đế, 100/5, CL.5P10-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_150-5_CL.5P10_5VA",
+        "description": "PCT đúc, có đế, 150/5, CL.5P10-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_200-5_CL.5P10_5VA",
+        "description": "PCT đúc, có đế, 200/5, CL.5P10-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_250-5_CL.5P10_5VA",
+        "description": "PCT đúc, có đế, 250/5, CL.5P10-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_300-5_CL.5P10_5VA",
+        "description": "PCT đúc, có đế, 300/5, CL.5P10-5VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_400-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 400/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_500-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 500/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_600-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 600/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_800-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 800/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_1000-5_CL.5P10_15VA",
+        "description": "PCT đúc, chữ nhật, 1000/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "PCT_1000-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 1000/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_1200-5_CL.5P10_15VA",
+        "description": "PCT đúc, chữ nhật, 1200/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "PCT_1200-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 1200/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "PCT_1600-5_CL.5P10_15VA",
+        "description": "PCT đúc, chữ nhật, 1600/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, chữ nhật"
+      },
+      {
+        "ibomCode": "PCT_1600-5_CL.5P10_15VA",
+        "description": "PCT đúc, có đế, 1600/5, CL.5P10-15VA",
+        "productCode": "",
+        "brand": "OMEGA",
+        "unit": "cái",
+        "note": "Loại đúc, có đế"
+      },
+      {
+        "ibomCode": "KBM-05R-1000",
+        "description": "PCT 1000/5A CL.5P10 5VA, loại lắp cho thanh cái",
+        "productCode": "KBM-05R-1000",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_18",
+    "logicText": "Có option lựa chọn MCT dạng lắp trên bus bar hay dạng luồn cáp\nĐiều kiện tiên quyết: \"bảo vệ chạm đất\"<>0---->Khối lượng dựa vào dòng định mức CB tổng, ví dụ CB 250A sẽ lựa chọn MCT 250/5 3 cái & PCT 250/A 4 cái",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "KBF-43",
+        "description": "Biến dòng đo lường MCT 300/5A CL.1 5VA 20x30 3P4W 3CT",
+        "productCode": "KBF-43",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "KBM-34R",
+        "description": "Biến dòng bảo vệ PCT 300/5A CL.5P10 2.5VA 32x12",
+        "productCode": "KBM-34R",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "KBF-23-250/5-3MCT",
+        "description": "Biến dòng đo lường MCT 250/5A CL.1 5VA 21x10 3P4W 3CT",
+        "productCode": "KBF-23-250/5-3MCT",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "KBJ-04R-250/5-1PCT",
+        "description": "Biến dòng bảo vệ PCT 250/5A CL.5P10 2.5VA Ø40",
+        "productCode": "KBJ-04R-250/5-1PCT",
+        "brand": "LIGHTSTAR",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_72",
+    "logicText": "số lượng tùy chọn, mặc định: nếu 800A> CB tổng >=300A, số lượng=5, ngược lại =0",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "CHAE004",
+        "description": "Gối đỡ SM-51",
+        "productCode": "CHAE004",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_73",
+    "logicText": "số lượng tùy chọn, mặc định: nếu 250A> CB tổng >=100A, số lượng=5, ngược lại =0",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "SM-35-VN",
+        "description": "Gối đỡ SM-35",
+        "productCode": "SM-35-VN",
+        "brand": "VN",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_74",
+    "logicText": "số lượng tùy chọn, mặc định: 0",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Quạt tản nhiệt 120x120",
+        "productCode": "F2E-120S-230",
+        "brand": "LEIPOLE",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_75",
+    "logicText": "số lượng=số khung tủ",
+    "logicType": "UNKNOWN",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Quạt tản nhiệt 200x200",
+        "productCode": "F2E-162B-230",
+        "brand": "LEIPOLE",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_76",
+    "logicText": "nếu mặt tủ=1: số lượng=số khung tủ; mặt tủ=2: số lượng=(số khung tủ) x 2",
+    "logicType": "UNKNOWN",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đèn chiếu sáng trong tủ dạng LED",
+        "productCode": "FSB509G103-4",
+        "brand": "FSL",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_77",
+    "logicText": "nếu mặt tủ=1: số lượng=số khung tủ; mặt tủ=2: số lượng=(số khung tủ) x 2",
+    "logicType": "UNKNOWN",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Công tắc hành trình + đế",
+        "productCode": "HY-R704C+MS-10",
+        "brand": "Hangyoung",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_78",
+    "logicText": "Chỉ chọn 1 trong các option này (dựa vào màu sơn tủ)\nsố mặt cửa =1: Khối lượng = số khung+2\nsố mặt cửa =2: Khối lượng = (số khung)x2+2",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "FKL6623.300_7032",
+        "description": "Miệng gió lọc bụi 204x204 (lỗ khoét 177x177), màu RAL7032",
+        "productCode": "FKL6623.300",
+        "brand": "Leipole",
+        "unit": "Cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "FKL6623.300_7035",
+        "description": "Miệng gió lọc bụi 204x204 (lỗ khoét 177x177), màu RAL7035",
+        "productCode": "FKL6623.300",
+        "brand": "Leipole",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_79",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cảm biến nhiệt độ",
+        "productCode": "BOWU004",
+        "brand": "Kacon",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_80",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 2.5-đỏ",
+        "productCode": "CV-2.5-DO",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_81",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 2.5-vàng",
+        "productCode": "CV-2.5-V",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_82",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 2.5-xanh dương",
+        "productCode": "CV-2.5-XD",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_83",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 2.5-xanh sọc vàng",
+        "productCode": "CV-2.5-XSV_1",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_84",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 1.0 vàng",
+        "productCode": "CV-1-V",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_85",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp CV 1.0 đen",
+        "productCode": "CV-1-DE",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_86",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cáp Vcm 0.75 xanh",
+        "productCode": "Vcm-0.75-XD",
+        "brand": "Cadivi",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_87",
+    "logicText": "số lượng tùy chọn (mặc định để 0, hiển thị warning màu nổi bật, người dùng tự nhập)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "CABLE PROFINET",
+        "productCode": "6XV1840-2AH10",
+        "brand": "Siemens",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_88",
+    "logicText": "số lượng tùy chọn (mặc định để 0, hiển thị warning màu nổi bật, người dùng tự nhập)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đầu nối cáp PROFINET RJ45",
+        "productCode": "VS-PN-RJ45-5-Q/IP20 - RJ45",
+        "brand": "Phoenix contact",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_89",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đầu coss chĩa bọc nhựa cho dây 2.5",
+        "productCode": "SV2-4",
+        "brand": "MHD /TLUG",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_90",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đầu cos chỉa trần 1.25",
+        "productCode": "SNB1.25-3",
+        "brand": "MHD /TLUG",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_91",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đầu cos pin rỗng dùng cho cáp 2.5",
+        "productCode": "E2510",
+        "brand": "MHD /TLUG",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_92",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đầu cos pin rỗng dùng cho cáp 1.0",
+        "productCode": "E1008",
+        "brand": "MHD /TLUG",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_93",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Giá đỡ cầu nối dây điện MR 35x7,5 SLOTTED (2m)",
+        "productCode": 500604,
+        "brand": "Klemsan",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_94",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Cable clamp rail - KR1 ( 1m )",
+        "productCode": 510500,
+        "brand": "Klemsan",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_95",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Máng cáp KKC 6060  60x60 WIRING DUCT",
+        "productCode": "0.0.0.5.51017",
+        "brand": "Klemsan",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_96",
+    "logicText": "số lượng tùy chọn (mặc định để 24, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Máng cáp KKC 4040  40x40 WIRING DUCT",
+        "productCode": "0.0.0.5.51013",
+        "brand": "Klemsan",
+        "unit": "m",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_97",
+    "logicText": "số lượng tùy chọn (mặc định để 0.1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Vít bắn M4x15,sắt",
+        "productCode": "PRHT001",
+        "brand": "VN",
+        "unit": "kg",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_98",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Dây rút 1T",
+        "productCode": "PMHR001",
+        "brand": "VN",
+        "unit": "Bịch/100",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_99",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Dây rút 2T, bản 8mm, màu đen",
+        "productCode": "PMHR002",
+        "brand": "VN",
+        "unit": "Bịch/100",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_100",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Băng keo điện nano",
+        "productCode": "IVIU003",
+        "brand": "NANO",
+        "unit": "Cuộn",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_101",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M4x30+long đền+ tán, sắt",
+        "productCode": "MVXK014",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_102",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M6x30+long đền+ tán, sắt",
+        "productCode": "MVXK015",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_103",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M6x40+long đền+ tán, sắt",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_104",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M8x30+long đền+ tán, sắt",
+        "productCode": "MVXK016",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_105",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M8x40+long đền+ tán, sắt",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_106",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M10x30+long đền+ tán, sắt",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_107",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M10x40+long đền+ tán, sắt",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_108",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bu lông M12x40+long đền+ tán, sắt",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_109",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Ruột gà xoắn Ø06",
+        "productCode": "XZRZ001",
+        "brand": "VN",
+        "unit": "bịch",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_110",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Ruột gà xoắn Ø16",
+        "productCode": "XZRZ002",
+        "brand": "VN",
+        "unit": "bịch",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_111",
+    "logicText": "số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Băng nhãn dán 9mm (Màu vàng)",
+        "productCode": "LM-TP309Y",
+        "brand": "MAX",
+        "unit": "cuộn",
+        "note": "8m/cuộn"
+      }
+    ]
+  },
+  {
+    "id": "GRP_112",
+    "logicText": "số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mực in số ( Màu đen)",
+        "productCode": "LM-IR300B",
+        "brand": "MAX",
+        "unit": "cuộn",
+        "note": "50m/cuộn"
+      }
+    ]
+  },
+  {
+    "id": "GRP_113",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Ống in số 3.2mm ( Màu trắng)",
+        "productCode": "LM-TU332N",
+        "brand": "VN",
+        "unit": "cuộn",
+        "note": "100m/Cuộn"
+      }
+    ]
+  },
+  {
+    "id": "GRP_114",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đá cắt 1 Tấc",
+        "productCode": "KKNA001",
+        "brand": "Norton",
+        "unit": "Viên",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_115",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đá mài 1 Tấc",
+        "productCode": "KKNA002",
+        "brand": "Norton",
+        "unit": "Viên",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_116",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Đá cắt 3 Tấc",
+        "productCode": "KKNA003",
+        "brand": "Norton",
+        "unit": "Viên",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_117",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Băng keo trong-5cm",
+        "productCode": "FVQM001",
+        "brand": "VN",
+        "unit": "cuộn",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_118",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Viết xóa màu trắng",
+        "productCode": "QVAN011",
+        "brand": "VN",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_119",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Băng keo giấy-2cm",
+        "productCode": "IVIU002",
+        "brand": "VN",
+        "unit": "Cuộn",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_120",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Domino nhựa mềm 10A màu trắng",
+        "productCode": "XVBQ001",
+        "brand": "VN",
+        "unit": "Thanh",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_121",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Viết lông dầu dầu kim",
+        "productCode": "QVAN010",
+        "brand": "VN",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_122",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Ty ren bằng sắt M6",
+        "productCode": "QVAN009",
+        "brand": "VN",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_123",
+    "logicText": "số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bát chặn domino bằng sắt",
+        "productCode": "BIZ-07",
+        "brand": "Hangyoung",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_124",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bút chì 2b",
+        "productCode": "DNQF013",
+        "brand": "VN",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_125",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mũi taro M4",
+        "productCode": "DNQF007",
+        "brand": "Nachi",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_126",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mũi taro M6",
+        "productCode": "",
+        "brand": "Nachi",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_127",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mũi khoan sắt M6",
+        "productCode": "DNQF008",
+        "brand": "Nachi",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_128",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mũi khoan sắt M8",
+        "productCode": "DNQF009",
+        "brand": "Nachi",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_129",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mũi khoan sắt M10",
+        "productCode": "",
+        "brand": "Nachi",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_130",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bình gas mini",
+        "productCode": "NKYH001",
+        "brand": "VN",
+        "unit": "Bình",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_131",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "PE quấn tủ điện",
+        "productCode": "",
+        "brand": "VN",
+        "unit": "Cuộn",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_132",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Ổ cắm điện chuyên dùng để gắn trong tủ điện",
+        "productCode": "0.0.0.6.70400",
+        "brand": "Klemsan",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_133",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Bộ nguồn 24VDC, 10A,240W",
+        "productCode": "S8VK-C24024",
+        "brand": "Omron",
+        "unit": "bộ",
+        "note": ""
+      },
+      {
+        "ibomCode": "",
+        "description": "Bộ nguồn 24VDC, 5A, 120W",
+        "productCode": "S8VK-C12024",
+        "brand": "Omron",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_134",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Phích cắm (đầu cái)",
+        "productCode": "",
+        "brand": "MPE",
+        "unit": "Cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_135",
+    "logicText": "Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1)",
+    "logicType": "SELECT_ONE",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Biến thế cách ly 500VA  380-400/0-200-220V",
+        "productCode": "",
+        "brand": "Chin-i",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "",
+        "description": "Biến thế cách ly 1000VA 380-400/0-200-220V0V",
+        "productCode": "BT-380/220-1000VA",
+        "brand": "Chin-i",
+        "unit": "cái",
+        "note": ""
+      },
+      {
+        "ibomCode": "",
+        "description": "Biến thế cách ly 2000VA 380/220V",
+        "productCode": "",
+        "brand": "Chin-i",
+        "unit": "cái",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_136",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Thanh lược 2P 63A",
+        "productCode": "QVAN007",
+        "brand": "Asia",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_137",
+    "logicText": "số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Thanh lược 3P 63A",
+        "productCode": "QVAN008",
+        "brand": "Asia",
+        "unit": "Cây",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_138",
+    "logicText": "số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Mica trong 5ly Đài Loan",
+        "productCode": "W720xH280",
+        "brand": "Asia",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_139",
+    "logicText": "số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Nút nhấn xanh lá",
+        "productCode": "YW1B-M1E11G",
+        "brand": "Idec",
+        "unit": "",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_140",
+    "logicText": "số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Công tơ điện tử 3 pha, gián tiếp 5A, 3 biểu giá (có kiểm định)",
+        "productCode": "ME-41MG",
+        "brand": "Emic",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_141",
+    "logicText": "số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định)",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "",
+        "description": "Biến dòng đo lường công tơ điện tử 3 pha (có kiểm định)",
+        "productCode": "",
+        "brand": "Emic",
+        "unit": "bộ",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "GRP_HEAT_SHRINK",
+    "logicText": "Co nhiệt (Heat Shrink) - Tự động chọn theo kích thước thanh cái",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "CN-20x5-DO",
+        "description": "Co nhiệt cho thanh cái 20x5 đỏ",
+        "productCode": "CN-20x5-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-V",
+        "description": "Co nhiệt cho thanh cái 20x5 vàng",
+        "productCode": "CN-20x5-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-XD",
+        "description": "Co nhiệt cho thanh cái 20x5 xanh dương",
+        "productCode": "CN-20x5-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-DEN",
+        "description": "Co nhiệt cho thanh cái 20x5 đen",
+        "productCode": "CN-20x5-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x8-DO",
+        "description": "Co nhiệt cho thanh cái 20x8 đỏ",
+        "productCode": "CN-20x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-V",
+        "description": "Co nhiệt cho thanh cái 20x8 vàng",
+        "productCode": "CN-20x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-XD",
+        "description": "Co nhiệt cho thanh cái 20x8 xanh dương",
+        "productCode": "CN-20x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-DEN",
+        "description": "Co nhiệt cho thanh cái 20x8 đen",
+        "productCode": "CN-20x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-25x8-DO",
+        "description": "Co nhiệt cho thanh cái 25x8 đỏ",
+        "productCode": "CN-25x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-V",
+        "description": "Co nhiệt cho thanh cái 25x8 vàng",
+        "productCode": "CN-25x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-XD",
+        "description": "Co nhiệt cho thanh cái 25x8 xanh dương",
+        "productCode": "CN-25x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-DEN",
+        "description": "Co nhiệt cho thanh cái 25x8 đen",
+        "productCode": "CN-25x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-30x10-DO",
+        "description": "Co nhiệt cho thanh cái 30x10 đỏ",
+        "productCode": "CN-30x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-V",
+        "description": "Co nhiệt cho thanh cái 30x10 vàng",
+        "productCode": "CN-30x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-XD",
+        "description": "Co nhiệt cho thanh cái 30x10 xanh dương",
+        "productCode": "CN-30x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-DEN",
+        "description": "Co nhiệt cho thanh cái 30x10 đen",
+        "productCode": "CN-30x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x8-DO",
+        "description": "Co nhiệt cho thanh cái 30x8 đỏ",
+        "productCode": "CN-30x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-V",
+        "description": "Co nhiệt cho thanh cái 30x8 vàng",
+        "productCode": "CN-30x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-XD",
+        "description": "Co nhiệt cho thanh cái 30x8 xanh dương",
+        "productCode": "CN-30x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-DEN",
+        "description": "Co nhiệt cho thanh cái 30x8 đen",
+        "productCode": "CN-30x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-40x10-DO",
+        "description": "Co nhiệt cho thanh cái 40x10 đỏ",
+        "productCode": "CN-40x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-V",
+        "description": "Co nhiệt cho thanh cái 40x10 vàng",
+        "productCode": "CN-40x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-XD",
+        "description": "Co nhiệt cho thanh cái 40x10 xanh dương",
+        "productCode": "CN-40x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-DEN",
+        "description": "Co nhiệt cho thanh cái 40x10 đen",
+        "productCode": "CN-40x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x8-DO",
+        "description": "Co nhiệt cho thanh cái 40x8 đỏ",
+        "productCode": "CN-40x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-V",
+        "description": "Co nhiệt cho thanh cái 40x8 vàng",
+        "productCode": "CN-40x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-XD",
+        "description": "Co nhiệt cho thanh cái 40x8 xanh dương",
+        "productCode": "CN-40x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-DEN",
+        "description": "Co nhiệt cho thanh cái 40x8 đen",
+        "productCode": "CN-40x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-50x10-DO",
+        "description": "Co nhiệt cho thanh cái 50x10 đỏ",
+        "productCode": "CN-50x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-V",
+        "description": "Co nhiệt cho thanh cái 50x10 vàng",
+        "productCode": "CN-50x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-XD",
+        "description": "Co nhiệt cho thanh cái 50x10 xanh dương",
+        "productCode": "CN-50x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-DEN",
+        "description": "Co nhiệt cho thanh cái 50x10 đen",
+        "productCode": "CN-50x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10x2-DO",
+        "description": "Co nhiệt cho thanh cái 50x10x2 đỏ",
+        "productCode": "CN-50x10x2-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-V",
+        "description": "Co nhiệt cho thanh cái 50x10x2 vàng",
+        "productCode": "CN-50x10x2-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-XD",
+        "description": "Co nhiệt cho thanh cái 50x10x2 xanh dương",
+        "productCode": "CN-50x10x2-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-DEN",
+        "description": "Co nhiệt cho thanh cái 50x10x2 đen",
+        "productCode": "CN-50x10x2-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      }
+    ]
+  },
+  {
+    "id": "GRP_BUSBAR",
+    "logicText": "Thanh cái (Busbar) - Tự động chọn theo cấu hình",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "BUSBAR_20x5",
+        "description": "Thanh cái đồng 20x5",
+        "productCode": "20x5",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "BUSBAR_20x8",
+        "description": "Thanh cái đồng 20x8",
+        "productCode": "20x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "BUSBAR_25x8",
+        "description": "Thanh cái đồng 25x8",
+        "productCode": "25x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "BUSBAR_30x10",
+        "description": "Thanh cái đồng 30x10",
+        "productCode": "30x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "BUSBAR_30x8",
+        "description": "Thanh cái đồng 30x8",
+        "productCode": "30x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "BUSBAR_40x10",
+        "description": "Thanh cái đồng 40x10",
+        "productCode": "40x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "BUSBAR_40x8",
+        "description": "Thanh cái đồng 40x8",
+        "productCode": "40x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "BUSBAR_50x10",
+        "description": "Thanh cái đồng 50x10",
+        "productCode": "50x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "BUSBAR_50x10x2",
+        "description": "Thanh cái đồng 50x10x2",
+        "productCode": "50x10x2",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 50x10x2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,237 @@
+=== Sheet: Common ===
+ | Mã ibom | Mô tả | Mã sản phẩm | Nhãn hiệu | Đơn vị | Ghi chú | Làm rõ logic |  | 
+ |  W800xH2100xD600x2.0mm_7032 | Vỏ tủ điện W800xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W800xH2100xD600x2.0mm | VN | cái |  | Chỉ chọn 1 trong các option này
+Cần tạo ra: textbox nhập số khung, số mặt tủ để tính toán lọc bụi, quạt, đèn, công tắc hành trình |  | 
+ |  W1600xH2100xD600x2.0mm_7032 | Vỏ tủ điện W1600xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W1600xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W2400xH2100xD600x2.0mm_7032 | Vỏ tủ điện W2400xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W2400xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W3200xH2100xD600x2.0mm_7032 | Vỏ tủ điện W3200xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W3200xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W3600xH2100xD600x2.0mm_7032 | Vỏ tủ điện W3600xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W3600xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W900xH2100xD600x2.0mm_7032 | Vỏ tủ điện W900xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W900xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W1800xH2100xD600x2.0mm_7032 | Vỏ tủ điện W1800xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W1800xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W2700xH2100xD600x2.0mm_7032 | Vỏ tủ điện W2700xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W2700xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W3600xH2100xD600x2.0mm_7032 | Vỏ tủ điện W3600xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W3600xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W4500xH2100xD600x2.0mm_7032 | Vỏ tủ điện W4500xH2100xD600x2.0mm, tủ khung, màu RAL 7032 | W4500xH2100xD600x2.0mm | VN | cái |  |  |  | 
+ |  W800xH2100xD800x2.0mm_7032 | Vỏ tủ điện W800xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W800xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W1600xH2100xD800x2.0mm_7032 | Vỏ tủ điện W1600xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W1600xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W2400xH2100xD800x2.0mm_7032 | Vỏ tủ điện W2400xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W2400xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W3200xH2100xD800x2.0mm_7032 | Vỏ tủ điện W3200xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W3200xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W4000xH2100xD800x2.0mm_7032 | Vỏ tủ điện W4000xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W4000xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W900xH2100xD800x2.0mm_7032 | Vỏ tủ điện W900xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W900xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W1800xH2100xD800x2.0mm_7032 | Vỏ tủ điện W1800xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W1800xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W2700xH2100xD800x2.0mm_7032 | Vỏ tủ điện W2700xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W2700xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W3600xH2100xD900x2.0mm_7032 | Vỏ tủ điện W3600xH2100xD900x2.0mm, tủ khung, màu RAL 7032 | W3600xH2100xD900x2.0mm | VN | cái |  |  |  | 
+ |  W4500xH2100xD800x2.0mm_7032 | Vỏ tủ điện W4500xH2100xD800x2.0mm, tủ khung, màu RAL 7032 | W4500xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ |  W3600xH2100xD900x2.0mm_FF160.4002.C3  | Vỏ tủ điện W3200xH2100xD800x2.0mm, tủ khung, màu FF160/4002/C3  | W3200xH2100xD800x2.0mm | VN | cái |  |  |  | 
+ | AGXY001 | Nhãn tên tủ điện |  | VN | Lô |  | số lượng tùy chọn (mặc định để 1) |  | 
+ |  | CB tổng |  |  | cái |  | Người dùng tự tra mã trong product library |  | 
+ |  | Shuntrip |  |  | cái |  | Tự động sinh theo CB tổng |  | 
+ | 5094656 | Bộ chống sét lan truyền V20 | 5094656 | OBO | Bộ |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ | 5093654 | Bộ chống sét lan truyền V50-B+C/3+NPE | 5093654 | OBO | Bộ |  |  |  | 
+ | YW1P-1EQM3R | Đèn báo pha đỏ, 220VAC, D22 | YW1P-1EQM3R | Idec | cái |  | số lượng tùy chọn (mặc định để 2) |  | 
+ | YW1P-1EQM3Y | Đèn báo pha vàng, 220VAC, D22 | YW1P-1EQM3Y | Idec | cái |  | số lượng tùy chọn (mặc định để 2) |  | 
+ | YW1P-1EQM3S | Đèn báo pha xanh dương, 220VAC, D22 | YW1P-1EQM3S | Idec | cái |  | số lượng tùy chọn (mặc định để 2) |  | 
+ | OMG-FS32X+OFL10x38-2A | Cầu chì 2A | OMG-FS32X+OFL10x38-2A | OMEGA | Bộ |  | Khối lượng bằng tổng 3 loại đèn báo pha ở trên |  | 
+ | YW1B-V4E11R | EMG Stop, D22, màu đỏ | YW1B-V4E11R | Idec | cái |  | số lượng tùy chọn (mặc định để 1) |  | 
+ | YW1B-M1E11R | Nút nhấn đèn patlight, D22 | YW1B-M1E11R | Idec | cái |  | Khối lượng bằng "Đèn báo động patlight, có chuông, màu đỏ 24VDC" |  | 
+ | CHAE002 | Đèn báo động patlight, có chuông, màu đỏ 24VDC |  | China | cái |  | số lượng tùy chọn (mặc định để 1) |  | 
+ | 1SVR730794R3300 | Thiết bị bảo vệ mất pha và đảo pha-A | 1SVR730794R3300 | ABB | Bộ |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ | RM22TR33 | Thiết bị bảo vệ mất pha và đảo pha-S | RM22TR33 | Schneider | Bộ |  |  |  | 
+ | DPM680 | Bộ đo điện đa năng, TCP/IP | DPM680 | Mikro | Bộ |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ | RX380-415AD | Bộ đo điện đa năng | RX380-415AD | Mikro | Bộ |  |  |  | 
+ | R201-230A | Bảo vệ chạm đất | R201-230A | Mikro | Bộ |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ | R301-230A | Bảo vệ chạm đất-ZCT | R301-230A | Mikro | Bộ |  |  |  | 
+ | ZCT60S | ZCT | ZCT60S | Mikro | cái |  | Khối lượng bằng "Bảo vệ chạm đất-ZCT" |  | 
+ | MCT_50-5_CL.3_5VA | MCT, 50/5, CL.3-5VA |  | OMEGA | cái | Loại đúc, có đế | Có option lựa chọn MCT dạng lắp trên bus bar hay dạng luồn cáp
+Điều kiện tiên quyết: "bảo vệ chạm đất"<>0---->Khối lượng dựa vào dòng định mức CB tổng, ví dụ CB 250A sẽ lựa chọn MCT 250/5 3 cái & PCT 250/A 4 cái |  | 
+ | MCT_75-5_CL.3_5VA | MCT đúc, có đế, 75/5, CL.3-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_100-5_CL.1_5VA | MCT đúc, có đế, 100/5, CL.1-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_100-5_CL.5P10_5VA | PCT đúc, có đế, 100/5, CL.5P10-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_150-5_CL.1_5VA | MCT đúc, có đế, 150/5, CL.1-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_150-5_CL.5P10_5VA | PCT đúc, có đế, 150/5, CL.5P10-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_200-5_CL.1_5VA | MCT đúc, có đế, 200/5, CL.1-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_200-5_CL.5P10_5VA | PCT đúc, có đế, 200/5, CL.5P10-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_250-5_CL.1_5VA | MCT đúc, có đế, 250/5, CL.1-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_250-5_CL.5P10_5VA | PCT đúc, có đế, 250/5, CL.5P10-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_300-5_CL.1_5VA | MCT đúc, có đế, 300/5, CL.1-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_300-5_CL.5P10_5VA | PCT đúc, có đế, 300/5, CL.5P10-5VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_400-5_CL.1_15VA | MCT đúc, có đế, 400/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_400-5_CL.5P10_15VA | PCT đúc, có đế, 400/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_500-5_CL.1_15VA | MCT đúc, có đế, 500/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_500-5_CL.5P10_15VA | PCT đúc, có đế, 500/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_600-5_CL.1_15VA | MCT đúc, có đế, 600/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_600-5_CL.5P10_15VA | PCT đúc, có đế, 600/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_800-5_CL.1_15VA | MCT đúc, có đế, 800/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_800-5_CL.5P10_15VA | PCT đúc, có đế, 800/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_1000-5_CL.1_15VA | MCT đúc, chữ nhật, 1000/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | PCT_1000-5_CL.5P10_15VA | PCT đúc, chữ nhật, 1000/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | PCT_1000-5_CL.5P10_15VA | PCT đúc, có đế, 1000/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_1200-5_CL.1_15VA | MCT đúc, chữ nhật, 1200/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | PCT_1200-5_CL.5P10_15VA | PCT đúc, chữ nhật, 1200/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | MCT_1200-5_CL.1_15VA | MCT đúc, có đế, 1200/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | PCT_1200-5_CL.5P10_15VA | PCT đúc, có đế, 1200/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | MCT_1600-5_CL.1_15VA | MCT đúc, chữ nhật, 1600/5, CL.1-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | PCT_1600-5_CL.5P10_15VA | PCT đúc, chữ nhật, 1600/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, chữ nhật |  |  | 
+ | PCT_1600-5_CL.5P10_15VA | PCT đúc, có đế, 1600/5, CL.5P10-15VA |  | OMEGA | cái | Loại đúc, có đế |  |  | 
+ | KBM-05-1000 | MCT 1000/5A CL.1 40VA, loại lắp cho thanh cái | KBM-05-1000 | LIGHTSTAR | cái |  |  |  | 
+ | KBM-05R-1000 | PCT 1000/5A CL.5P10 5VA, loại lắp cho thanh cái | KBM-05R-1000 | LIGHTSTAR | cái |  |  |  | 
+ | KBF-43 | Biến dòng đo lường MCT 300/5A CL.1 5VA 20x30 3P4W 3CT | KBF-43 | LIGHTSTAR | cái |  | Có option lựa chọn MCT dạng lắp trên bus bar hay dạng luồn cáp
+Điều kiện tiên quyết: "bảo vệ chạm đất"<>0---->Khối lượng dựa vào dòng định mức CB tổng, ví dụ CB 250A sẽ lựa chọn MCT 250/5 3 cái & PCT 250/A 4 cái |  | 
+ | KBM-34R | Biến dòng bảo vệ PCT 300/5A CL.5P10 2.5VA 32x12 | KBM-34R | LIGHTSTAR | cái |  |  |  | 
+ | KBF-23-250/5-3MCT | Biến dòng đo lường MCT 250/5A CL.1 5VA 21x10 3P4W 3CT | KBF-23-250/5-3MCT | LIGHTSTAR | cái |  |  |  | 
+ | KBJ-04R-250/5-1PCT | Biến dòng bảo vệ PCT 250/5A CL.5P10 2.5VA Ø40 | KBJ-04R-250/5-1PCT | LIGHTSTAR | cái |  |  |  | 
+ | TD-20x8 | Bus 20x8 | #REF! | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | #REF! | #REF! | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | #REF! | #REF! | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | #REF! | #REF! | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | #REF! | #REF! | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-25x5 | Bus 25x5 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 25x5 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 25x5 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 25x5 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 25x5 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-30x5 | Bus 30x5 | Bus-30x5 | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x5 đỏ | CN-30x5-DO | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x5 vàng | CN-30x5-V | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x5 xanh dương | CN-30x5-XD | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x5 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-30x10 | Bus 30x10 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x10 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x10 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x10 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 30x10 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-40x8 | Bus 40x8 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x8 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x8 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x8 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x8 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-40x10 | Bus 40x10 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x10 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x10 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x10 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 40x10 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-50x6 | Bus 50x6 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x6 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x6 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x6 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x6 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-50x8 | Bus 50x8 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x8 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x8 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x8 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x8 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-50x10 | Bus-50x10 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x10 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x10 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x10 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 50x10 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-80x8 | Bus 80x8 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x8 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x8 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x8 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x8 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | TD-80x10 | Bus 80x10 |  | Asia | m |  | Chỉ hiển thị khi chọn CB tổng tương ứng, quy ước xem sheet busbar; số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x10 đỏ |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x10 vàng |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x10 xanh dương |  | Asia | m |  | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Co nhiệt cho thanh cái 80x10 đen |  | Asia | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ | EL-130 | Thanh đỡ Busbar 4 rãnh, rãnh 10mm | EL-130 | China | Cái |  | Chỉ sử dụng khi CB tổng là ACB (mặc định =0)-->số lượng tùy chọn theo số lượng cực ACB, ví dụ ACB 3 cực, số lượng =3; ACB 4 cực, số lượng =4 |  | 
+ | EL-210 | Thanh đỡ Busbar 3 rãnh đơn, rãnh 10mm | EL-210 | Master | Cặp (2 cái) |  | Sử dụng khi CB tổng khác ACB
+dựa vào độ dày thanh đồng (số phía sau là độ dày) & số cực CB tổng, ví dụ: bus 30x8 & CB tổng 3 pha thì dùng 3 rãnh, 10mm; bus 20x5 & CB tổng 3 pha thì dùng 3 rãnh, 10mm; trường hợp không có rãnh 6 cho option đó thì dùng rãnh 10
+Số lượng số lượng tùy chọn, mặc định: 2 |  | 
+ | EL-180 | Thanh đỡ Busbar 3 rãnh đơn, rãnh 6mm | EL-180 | Master | Cặp (2 cái) |  |  |  | 
+ | EL-295 | Thanh đỡ Busbar 4 rãnh đơn, rãnh 10mm | EL-295 | Master | Cặp (2 cái) |  |  |  | 
+ | EL-409 | Thanh đỡ Busbar 4 rãnh kép, rãnh 10mm | EL-409 | China | Cặp (2 cái) |  |  |  | 
+ | CHAE004 | Gối đỡ SM-51 | CHAE004 | VN | cái |  | số lượng tùy chọn, mặc định: nếu 800A> CB tổng >=300A, số lượng=5, ngược lại =0 |  | 
+ | SM-35-VN | Gối đỡ SM-35 | SM-35-VN | VN | cái |  | số lượng tùy chọn, mặc định: nếu 250A> CB tổng >=100A, số lượng=5, ngược lại =0 |  | 
+ |  | Quạt tản nhiệt 120x120 | F2E-120S-230 | LEIPOLE | cái |  | số lượng tùy chọn, mặc định: 0 |  | 
+ |  | Quạt tản nhiệt 200x200 | F2E-162B-230 | LEIPOLE | cái |  | số lượng=số khung tủ |  | 
+ |  | Đèn chiếu sáng trong tủ dạng LED | FSB509G103-4 | FSL | bộ |  | nếu mặt tủ=1: số lượng=số khung tủ; mặt tủ=2: số lượng=(số khung tủ) x 2 |  | 
+ |  | Công tắc hành trình + đế | HY-R704C+MS-10 | Hangyoung | bộ |  | nếu mặt tủ=1: số lượng=số khung tủ; mặt tủ=2: số lượng=(số khung tủ) x 2 |  | 
+ | FKL6623.300_7032 | Miệng gió lọc bụi 204x204 (lỗ khoét 177x177), màu RAL7032 | FKL6623.300 | Leipole | Cái |  | Chỉ chọn 1 trong các option này (dựa vào màu sơn tủ)
+số mặt cửa =1: Khối lượng = số khung+2
+số mặt cửa =2: Khối lượng = (số khung)x2+2 |  | 
+ | FKL6623.300_7035 | Miệng gió lọc bụi 204x204 (lỗ khoét 177x177), màu RAL7035 | FKL6623.300 | Leipole | cái |  |  |  | 
+ |  | Cảm biến nhiệt độ | BOWU004 | Kacon | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 2.5-đỏ | CV-2.5-DO | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 2.5-vàng | CV-2.5-V | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 2.5-xanh dương | CV-2.5-XD | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 2.5-xanh sọc vàng | CV-2.5-XSV_1 | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 1.0 vàng | CV-1-V | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp CV 1.0 đen | CV-1-DE | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cáp Vcm 0.75 xanh | Vcm-0.75-XD | Cadivi | m |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | CABLE PROFINET | 6XV1840-2AH10 | Siemens | m |  | số lượng tùy chọn (mặc định để 0, hiển thị warning màu nổi bật, người dùng tự nhập) |  | 
+ |  | Đầu nối cáp PROFINET RJ45 | VS-PN-RJ45-5-Q/IP20 - RJ45 | Phoenix contact | Cái |  | số lượng tùy chọn (mặc định để 0, hiển thị warning màu nổi bật, người dùng tự nhập) |  | 
+ |  | Đầu coss chĩa bọc nhựa cho dây 2.5 | SV2-4 | MHD /TLUG | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đầu cos chỉa trần 1.25 | SNB1.25-3 | MHD /TLUG | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đầu cos pin rỗng dùng cho cáp 2.5 | E2510 | MHD /TLUG | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đầu cos pin rỗng dùng cho cáp 1.0 | E1008 | MHD /TLUG | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Giá đỡ cầu nối dây điện MR 35x7,5 SLOTTED (2m) | 500604 | Klemsan | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Cable clamp rail - KR1 ( 1m ) | 510500 | Klemsan | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Máng cáp KKC 6060  60x60 WIRING DUCT | 0.0.0.5.51017 | Klemsan | m |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Máng cáp KKC 4040  40x40 WIRING DUCT | 0.0.0.5.51013 | Klemsan | m |  | số lượng tùy chọn (mặc định để 24, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Vít bắn M4x15,sắt | PRHT001 | VN | kg |  | số lượng tùy chọn (mặc định để 0.1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Dây rút 1T | PMHR001 | VN | Bịch/100 |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Dây rút 2T, bản 8mm, màu đen | PMHR002 | VN | Bịch/100 |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Băng keo điện nano | IVIU003 | NANO | Cuộn |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M4x30+long đền+ tán, sắt | MVXK014 | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M6x30+long đền+ tán, sắt | MVXK015 | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M6x40+long đền+ tán, sắt |  | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M8x30+long đền+ tán, sắt | MVXK016 | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M8x40+long đền+ tán, sắt |  | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M10x30+long đền+ tán, sắt |  | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M10x40+long đền+ tán, sắt |  | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bu lông M12x40+long đền+ tán, sắt |  | VN | Bộ |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Ruột gà xoắn Ø06 | XZRZ001 | VN | bịch |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Ruột gà xoắn Ø16 | XZRZ002 | VN | bịch |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) | Dự phòng | phụ trợ (CB nguồn, profinet)
+ |  | Băng nhãn dán 9mm (Màu vàng) | LM-TP309Y | MAX | cuộn | 8m/cuộn | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mực in số ( Màu đen) | LM-IR300B | MAX | cuộn | 50m/cuộn | số lượng tùy chọn (mặc định để 2, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Ống in số 3.2mm ( Màu trắng) | LM-TU332N | VN | cuộn | 100m/Cuộn | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đá cắt 1 Tấc | KKNA001 | Norton | Viên |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đá mài 1 Tấc | KKNA002 | Norton | Viên |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Đá cắt 3 Tấc | KKNA003 | Norton | Viên |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Băng keo trong-5cm | FVQM001 | VN | cuộn |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Viết xóa màu trắng | QVAN011 | VN | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Băng keo giấy-2cm | IVIU002 | VN | Cuộn |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Domino nhựa mềm 10A màu trắng | XVBQ001 | VN | Thanh |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Viết lông dầu dầu kim | QVAN010 | VN | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Ty ren bằng sắt M6 | QVAN009 | VN | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bát chặn domino bằng sắt | BIZ-07 | Hangyoung | Cái |  | số lượng tùy chọn (mặc định để 20, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bút chì 2b | DNQF013 | VN | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mũi taro M4 | DNQF007 | Nachi | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mũi taro M6 |  | Nachi | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mũi khoan sắt M6 | DNQF008 | Nachi | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mũi khoan sắt M8 | DNQF009 | Nachi | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mũi khoan sắt M10 |  | Nachi | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bình gas mini | NKYH001 | VN | Bình |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | PE quấn tủ điện |  | VN | Cuộn |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Ổ cắm điện chuyên dùng để gắn trong tủ điện | 0.0.0.6.70400 | Klemsan | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Bộ nguồn 24VDC, 10A,240W | S8VK-C24024 | Omron | bộ |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ |  | Bộ nguồn 24VDC, 5A, 120W | S8VK-C12024 | Omron | bộ |  |  |  | 
+ |  | Phích cắm (đầu cái) |  | MPE | Cái |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Biến thế cách ly 500VA  380-400/0-200-220V |  | Chin-i | cái |  | Chỉ chọn 1 trong các option này--->số lượng tùy chọn (mặc định để 1) |  | 
+ |  | Biến thế cách ly 1000VA 380-400/0-200-220V0V | BT-380/220-1000VA | Chin-i | cái |  |  |  | 
+ |  | Biến thế cách ly 2000VA 380/220V |  | Chin-i | cái |  |  |  | 
+ |  | Thanh lược 2P 63A | QVAN007 | Asia | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Thanh lược 3P 63A | QVAN008 | Asia | Cây |  | số lượng tùy chọn (mặc định để 1, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Mica trong 5ly Đài Loan | W720xH280 | Asia | bộ |  | số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Nút nhấn xanh lá | YW1B-M1E11G | Idec |  |  | số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Công tơ điện tử 3 pha, gián tiếp 5A, 3 biểu giá (có kiểm định) | ME-41MG | Emic | bộ |  | số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+ |  | Biến dòng đo lường công tơ điện tử 3 pha (có kiểm định) |  | Emic | bộ |  | số lượng tùy chọn (mặc định để 0, tôi sẽ edit lại số này-->cần có phương thức edit mặc định) |  | 
+
+=== Sheet: Busbar ===
+ | CB | 3P | N | PE
+ | 100A | 20x5 | 20x5 | 20x5
+ | 150A | 20x8 | 20x5 | 20x5
+ | 200A | 20x8 | 20x5 | 20x5
+ | 250A | 20x8 | 20x8 | 20x5
+ | 300A | 30x10 | 20x8 | 20x8
+ | 350A | 30x10 | 25x8 | 25x8
+ | 400A | 40x8 | 30x8 | 30x8
+ | 450A | 40x8 | 30x8 | 30x8
+ | 500A | 40x8 | 30x8 | 30x8
+ | 630A | 40x10 | 30x10 | 30x10
+ | 800A | 50x10 | 40x10 | 40x10
+ | 1000A | 50x10x2 | 50x10 | 50x10
+ | 1250A | 50x10x2 | 50x10 | 50x10
+ | 1600A | 50x10x2 | 50x10 | 50x10
+

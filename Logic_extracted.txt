@@ -1,0 +1,79 @@
+# 
+📘
+ TECHNICAL SPEC: AUTO-GENERATE ELECTRICAL BOM SYSTEM
+**Project:** Hệ thống Bóc tách Khối lượng Tủ điện (Auto BOM App)
+**Version:** 3.1 (Corrected Merged Logic)
+**Date:** 01/12/2025
+**Core Change:** Xử lý Logic Merge Cells (Gộp nhóm).
+---
+## PHẦN 1: THIẾT KẾ CƠ SỞ DỮ LIỆU (DATABASE SCHEMA)
+Để xử lý logic "Merge", chúng ta không lưu phẳng từng dòng mà phải thêm `Logic_Group_ID` để định danh các nhóm thiết bị dùng chung ô Excel.
+### 1.1. Bảng Master Thiết Bị (Table: `master_devices`)
+*Dữ liệu từ cột B->E Sheet Common. Lưu ý cột `Logic_Group_ID`.*
+| ID | SKU_Code | Device_Name | Unit | Logic_Group_ID | Category_Type |
+|:--:|:---|:---|:---:|:---:|:---|
+| 1 | YW1P-R | Đèn báo pha Đỏ | Cái | **GRP_LAMP** | **Accessory** |
+| 2 | YW1P-Y | Đèn báo pha Vàng | Cái | **GRP_LAMP** | **Accessory** |
+| 3 | YW1P-B | Đèn báo pha Xanh | Cái | **GRP_LAMP** | **Accessory** |
+| 4 | (Null) | MCT 50/5 CL.1 | Cái | **GRP_MCT** | **Sensor** |
+| 5 | (Null) | MCT 100/5 CL.1 | Cái | **GRP_MCT** | **Sensor** |
+| ...| ... | ... | ... | ... | ... |
+| 20 | (Null) | MCT 1600/5 CL.1 | Cái | **GRP_MCT** | **Sensor** |
+| 21 | F2E-120 | Quạt tản nhiệt | Cái | **GRP_FAN** | **Mechanical** |
+### 1.2. Bảng Định Nghĩa Logic (Table: `logic_definitions`)
+*Dữ liệu từ cột H Sheet Common. Mỗi `Logic_Group_ID` chỉ có 1 dòng logic duy nhất.*
+| Logic_Group_ID | Logic_Type | Parameter_Value | Formula / Condition | Description (Excel Logic) |
+|:---|:---|:---|:---|:---|
+| **GRP_LAMP** | `APPLY_ALL` | 2 | - | "Mặc định để 2" |
+| **GRP_MCT** | `SELECT_ONE` | 3 | `Match_Amps(I_dm)` | "Chọn MCT theo dòng CB tổng" |
+| **GRP_PCT** | `SELECT_ONE` | 4 | `Match_Amps(I_dm)` | "Chọn PCT theo dòng CB tổng" |
+| **GRP_FUSE** | `DEPENDENT` | - | `SUM(Qty_Devices_In_Group(GRP_LAMP))` | "Bằng tổng 3 loại đèn" |
+| **GRP_FAN** | `FORMULA` | - | `Floor(W / 800)` | "Tính theo khung tủ" |
+| **GRP_CONDUIT**| `LOOKUP` | - | `Lookup_Conduit(Cabinet_Type)` | "Tra bảng theo loại tủ" |
+---
+## PHẦN 2: LOGIC WORKFLOW (QUY TRÌNH XỬ LÝ CHUẨN)
+Hệ thống sẽ không chạy theo từng dòng thiết bị, mà chạy theo **Danh sách Logic Group**.
+### Bước 1: Load Input & Config
+* Input: $I_{dm} = 400A$, Size, Type.
+* Load `master_devices` và `logic_definitions`.
+### Bước 2: Duyệt từng Logic Group (Process by Group)
+Hệ thống lặp qua các `Logic_Group_ID` trong bảng Logic:
+#### Trường hợp A: Logic `APPLY_ALL` (Ví dụ: GRP_LAMP)
+* **Quy tắc:** Lấy tất cả thiết bị thuộc nhóm này. Gán số lượng `Parameter_Value` cho từng cái.
+* **Thực thi:**
+    * Tìm ID 1, 2, 3 (Đỏ, Vàng, Xanh) thuộc `GRP_LAMP`.
+    * Set Qty = 2 cho cả 3.
+    * $\rightarrow$ Result: {Đỏ: 2, Vàng: 2, Xanh: 2}.
+#### Trường hợp B: Logic `SELECT_ONE` (Ví dụ: GRP_MCT)
+* **Quy tắc:** Trong nhóm này, chỉ chọn 1 thiết bị thỏa mãn điều kiện `Formula`.
+* **Thực thi:**
+    * Lấy danh sách 20 dòng MCT thuộc `GRP_MCT`.
+    * Chạy hàm `Match_Amps(400)` để so sánh với tên/mô tả của từng dòng.
+    * Tìm thấy dòng "MCT 400/5...".
+    * Set Qty = `Parameter_Value` (là 3). Các dòng còn lại Qty = 0.
+    * $\rightarrow$ Result: {MCT 400/5: 3}.
+#### Trường hợp C: Logic `DEPENDENT` (Ví dụ: GRP_FUSE)
+* **Quy tắc:** Tính toán dựa trên kết quả của nhóm khác.
+* **Thực thi:**
+    * Công thức là `SUM(Qty_Devices_In_Group(GRP_LAMP))`.
+    * Lấy kết quả từ Trường hợp A (2 + 2 + 2 = 6).
+    * Gán Qty = 6 cho thiết bị thuộc `GRP_FUSE`.
+#### Trường hợp D: Logic `LOOKUP` (Ví dụ: GRP_CONDUIT)
+* **Quy tắc:** Tra bảng cấu hình riêng (như bảng 1.2 trong v3.0) dựa trên `Cabinet_Type`.
+* **Thực thi:**
+    * Input Type = "DOL". Tra bảng thấy giá trị 38.
+    * Gán Qty = 38 cho thiết bị thuộc `GRP_CONDUIT` (Ruột gà Ø10).
+### Bước 3: Tổng hợp (Aggregation)
+* Gộp kết quả từ các bước trên.
+* Chèn thêm Thanh cái & Co nhiệt (Logic Busbar độc lập như v3.0).
+* Áp dụng User Overrides (nếu có).
+---
+## PHẦN 3: LƯU Ý KHI IMPORT DỮ LIỆU (DATA ENTRY GUIDE)
+*Dành cho người nhập liệu vào Database App*
+1.  **Nhận diện Group:** Khi thấy các ô trong Excel được Merge (Gộp) ở cột H:
+    * Hãy tạo 1 mã `Logic_Group_ID` (ví dụ `GRP_01`, `GRP_02`...).
+    * Gán mã này cho tất cả các dòng thiết bị nằm trong vùng Merge đó.
+2.  **Phân loại Logic:**
+    * Nếu nội dung là "mặc định để X" $\rightarrow$ Loại `APPLY_ALL`.
+    * Nếu nội dung là "dựa vào dòng định mức..." hoặc "chọn 1 trong các option" $\rightarrow$ Loại `SELECT_ONE`.
+    * Nếu nội dung là "khối lượng bằng..." $\rightarrow$ Loại `DEPENDENT`.

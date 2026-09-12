@@ -1,0 +1,297 @@
+[
+  {
+    "id": "GRP_HEAT_SHRINK",
+    "logicText": "Co nhiệt (Heat Shrink) - Tự động chọn theo kích thước thanh cái",
+    "logicType": "APPLY_ALL",
+    "items": [
+      {
+        "ibomCode": "CN-20x5-DO",
+        "description": "Co nhiệt cho thanh cái 20x5 đỏ",
+        "productCode": "CN-20x5-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-V",
+        "description": "Co nhiệt cho thanh cái 20x5 vàng",
+        "productCode": "CN-20x5-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-XD",
+        "description": "Co nhiệt cho thanh cái 20x5 xanh dương",
+        "productCode": "CN-20x5-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x5-DEN",
+        "description": "Co nhiệt cho thanh cái 20x5 đen",
+        "productCode": "CN-20x5-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "CN-20x8-DO",
+        "description": "Co nhiệt cho thanh cái 20x8 đỏ",
+        "productCode": "CN-20x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-V",
+        "description": "Co nhiệt cho thanh cái 20x8 vàng",
+        "productCode": "CN-20x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-XD",
+        "description": "Co nhiệt cho thanh cái 20x8 xanh dương",
+        "productCode": "CN-20x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-20x8-DEN",
+        "description": "Co nhiệt cho thanh cái 20x8 đen",
+        "productCode": "CN-20x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "CN-25x8-DO",
+        "description": "Co nhiệt cho thanh cái 25x8 đỏ",
+        "productCode": "CN-25x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-V",
+        "description": "Co nhiệt cho thanh cái 25x8 vàng",
+        "productCode": "CN-25x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-XD",
+        "description": "Co nhiệt cho thanh cái 25x8 xanh dương",
+        "productCode": "CN-25x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-25x8-DEN",
+        "description": "Co nhiệt cho thanh cái 25x8 đen",
+        "productCode": "CN-25x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "CN-30x10-DO",
+        "description": "Co nhiệt cho thanh cái 30x10 đỏ",
+        "productCode": "CN-30x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-V",
+        "description": "Co nhiệt cho thanh cái 30x10 vàng",
+        "productCode": "CN-30x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-XD",
+        "description": "Co nhiệt cho thanh cái 30x10 xanh dương",
+        "productCode": "CN-30x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x10-DEN",
+        "description": "Co nhiệt cho thanh cái 30x10 đen",
+        "productCode": "CN-30x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "CN-30x8-DO",
+        "description": "Co nhiệt cho thanh cái 30x8 đỏ",
+        "productCode": "CN-30x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-V",
+        "description": "Co nhiệt cho thanh cái 30x8 vàng",
+        "productCode": "CN-30x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-XD",
+        "description": "Co nhiệt cho thanh cái 30x8 xanh dương",
+        "productCode": "CN-30x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-30x8-DEN",
+        "description": "Co nhiệt cho thanh cái 30x8 đen",
+        "productCode": "CN-30x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "CN-40x10-DO",
+        "description": "Co nhiệt cho thanh cái 40x10 đỏ",
+        "productCode": "CN-40x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-V",
+        "description": "Co nhiệt cho thanh cái 40x10 vàng",
+        "productCode": "CN-40x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-XD",
+        "description": "Co nhiệt cho thanh cái 40x10 xanh dương",
+        "productCode": "CN-40x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x10-DEN",
+        "description": "Co nhiệt cho thanh cái 40x10 đen",
+        "productCode": "CN-40x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "CN-40x8-DO",
+        "description": "Co nhiệt cho thanh cái 40x8 đỏ",
+        "productCode": "CN-40x8-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-V",
+        "description": "Co nhiệt cho thanh cái 40x8 vàng",
+        "productCode": "CN-40x8-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-XD",
+        "description": "Co nhiệt cho thanh cái 40x8 xanh dương",
+        "productCode": "CN-40x8-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-40x8-DEN",
+        "description": "Co nhiệt cho thanh cái 40x8 đen",
+        "productCode": "CN-40x8-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "CN-50x10-DO",
+        "description": "Co nhiệt cho thanh cái 50x10 đỏ",
+        "productCode": "CN-50x10-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-V",
+        "description": "Co nhiệt cho thanh cái 50x10 vàng",
+        "productCode": "CN-50x10-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-XD",
+        "description": "Co nhiệt cho thanh cái 50x10 xanh dương",
+        "productCode": "CN-50x10-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10-DEN",
+        "description": "Co nhiệt cho thanh cái 50x10 đen",
+        "productCode": "CN-50x10-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "CN-50x10x2-DO",
+        "description": "Co nhiệt cho thanh cái 50x10x2 đỏ",
+        "productCode": "CN-50x10x2-DO",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-V",
+        "description": "Co nhiệt cho thanh cái 50x10x2 vàng",
+        "productCode": "CN-50x10x2-V",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-XD",
+        "description": "Co nhiệt cho thanh cái 50x10x2 xanh dương",
+        "productCode": "CN-50x10x2-XD",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      },
+      {
+        "ibomCode": "CN-50x10x2-DEN",
+        "description": "Co nhiệt cho thanh cái 50x10x2 đen",
+        "productCode": "CN-50x10x2-DEN",
+        "brand": "Asia",
+        "unit": "m",
+        "note": "Size: 50x10x2"
+      }
+    ]
+  }
+]

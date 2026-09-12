@@ -1,0 +1,81 @@
+[
+  {
+    "id": "GRP_BUSBAR",
+    "logicText": "Thanh cái (Busbar) - Tự động chọn theo cấu hình",
+    "logicType": "DEPENDENT",
+    "items": [
+      {
+        "ibomCode": "BUSBAR_20x5",
+        "description": "Thanh cái đồng 20x5",
+        "productCode": "20x5",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 20x5"
+      },
+      {
+        "ibomCode": "BUSBAR_20x8",
+        "description": "Thanh cái đồng 20x8",
+        "productCode": "20x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 20x8"
+      },
+      {
+        "ibomCode": "BUSBAR_25x8",
+        "description": "Thanh cái đồng 25x8",
+        "productCode": "25x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 25x8"
+      },
+      {
+        "ibomCode": "BUSBAR_30x10",
+        "description": "Thanh cái đồng 30x10",
+        "productCode": "30x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 30x10"
+      },
+      {
+        "ibomCode": "BUSBAR_30x8",
+        "description": "Thanh cái đồng 30x8",
+        "productCode": "30x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 30x8"
+      },
+      {
+        "ibomCode": "BUSBAR_40x10",
+        "description": "Thanh cái đồng 40x10",
+        "productCode": "40x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 40x10"
+      },
+      {
+        "ibomCode": "BUSBAR_40x8",
+        "description": "Thanh cái đồng 40x8",
+        "productCode": "40x8",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 40x8"
+      },
+      {
+        "ibomCode": "BUSBAR_50x10",
+        "description": "Thanh cái đồng 50x10",
+        "productCode": "50x10",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 50x10"
+      },
+      {
+        "ibomCode": "BUSBAR_50x10x2",
+        "description": "Thanh cái đồng 50x10x2",
+        "productCode": "50x10x2",
+        "brand": "Local",
+        "unit": "md",
+        "note": "Size: 50x10x2"
+      }
+    ]
+  }
+]
