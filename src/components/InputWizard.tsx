@@ -45,6 +45,8 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
         isolator_estop_FB: false,
     });
     const [loadName, setLoadName] = useState('');
+    // P1.2b (PA-1): công suất hiển thị là text tự do; mặc định `<tier>kW`, user sửa được.
+    const [powerLabel, setPowerLabel] = useState<string>('');
 
     // Get available power ratings for selected starter type
     const getAvailablePowers = (): number[] => {
@@ -60,6 +62,11 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
             setPower(availablePowers[0] || 0.18);
         }
     }, [type]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // P1.2b: đặt lại nhãn công suất hiển thị về mặc định mỗi khi đổi tier/power.
+    React.useEffect(() => {
+        setPowerLabel(`${power}kW`);
+    }, [power]);
 
     // --- Vòng Excel cho danh sách phụ tải ---
 
@@ -190,6 +197,9 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
             id: crypto.randomUUID(),
             type,
             power,
+            // P1.2b (PA-1): tierKey chọn tier (= giá trị dropdown), powerLabel là text hiển thị tự do.
+            tierKey: String(power),
+            powerLabel: powerLabel.trim() || `${power}kW`,
             quantity,
             brand,
             isolator,
@@ -198,7 +208,7 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
             loadName: loadName.trim() || undefined,
         };
         onAddStarter(newStarter);
-        showToast(`Added ${type} Starter (${power}kW)`, "success");
+        showToast(`Added ${type} Starter (${powerLabel.trim() || `${power}kW`})`, "success");
         setLoadName(''); // Reset load name after add
     };
 
@@ -265,6 +275,18 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
                             ))}
                         </select>
                     </div>
+                </div>
+
+                {/* P1.2b (PA-1): Công suất hiển thị — text tự do, không dùng để tính toán */}
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Công suất (hiển thị)</label>
+                    <input
+                        type="text"
+                        value={powerLabel}
+                        onChange={(e) => setPowerLabel(e.target.value)}
+                        placeholder="vd: 5.5kW, 11kW (biến tần)"
+                        className="w-full p-2 bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 outline-none dark:text-white"
+                    />
                 </div>
 
                 {/* Load Name */}

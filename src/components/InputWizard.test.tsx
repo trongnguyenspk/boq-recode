@@ -146,3 +146,33 @@ describe('InputWizard import decisions', () => {
         });
     });
 });
+
+// P1.2b (PA-1): công suất hiển thị (powerLabel) + tierKey khi thêm starter.
+describe('InputWizard power label (P1.2b)', () => {
+    it('adds a starter with tierKey and a default powerLabel derived from the tier', () => {
+        const onAddStarter = vi.fn();
+        render(
+            <ToastProvider>
+                <InputWizard onAddStarter={onAddStarter} templates={{ DOL: { '5.5': [] } }} brands={['Schneider']} />
+            </ToastProvider>,
+        );
+        fireEvent.click(screen.getByRole('button', { name: /ADD TO BOQ/i }));
+        expect(onAddStarter).toHaveBeenCalledWith(
+            expect.objectContaining({ type: 'DOL', power: 5.5, tierKey: '5.5', powerLabel: '5.5kW' }),
+        );
+    });
+
+    it('lets the user type a free-text powerLabel while tierKey stays the selected tier', () => {
+        const onAddStarter = vi.fn();
+        render(
+            <ToastProvider>
+                <InputWizard onAddStarter={onAddStarter} templates={{ DOL: { '5.5': [] } }} brands={['Schneider']} />
+            </ToastProvider>,
+        );
+        fireEvent.change(screen.getByPlaceholderText(/biến tần/i), { target: { value: '11kW (biến tần)' } });
+        fireEvent.click(screen.getByRole('button', { name: /ADD TO BOQ/i }));
+        expect(onAddStarter).toHaveBeenCalledWith(
+            expect.objectContaining({ tierKey: '5.5', powerLabel: '11kW (biến tần)' }),
+        );
+    });
+});
