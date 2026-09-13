@@ -11,6 +11,7 @@ import {
     type SanitizeImportOptions,
 } from './import-validation';
 import * as XLSX from 'xlsx';
+import { assertFileWithinLimit, assertWorkbookWithinLimits, sanitizeParsedRows } from './excel-safety';
 
 export interface DetailedProductImportResult {
     products: Product[];
@@ -29,13 +30,15 @@ function readFirstSheetRows(file: File): Promise<MatrixRawRow[]> {
             try {
                 const data = new Uint8Array(e.target?.result as ArrayBuffer);
                 const workbook = XLSX.read(data, { type: 'array' });
+                assertWorkbookWithinLimits(workbook);
                 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                resolve(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet));
+                resolve(sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet)));
             } catch (err) {
                 reject(err);
             }
         };
         reader.onerror = (err) => reject(err);
+        assertFileWithinLimit(file);
         reader.readAsArrayBuffer(file);
     });
 }
@@ -48,8 +51,9 @@ export async function importLibraryFromExcel(file: File, allowedBrands?: string[
                 try {
                     const data = new Uint8Array(e.target?.result as ArrayBuffer);
                     const workbook = XLSX.read(data, { type: 'array' });
+                    assertWorkbookWithinLimits(workbook);
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet);
+                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet));
 
                     // P0-4: allowedBrands do caller truyền (brands + brand trong library). undefined -> default cũ.
                     const products: Product[] = jsonData.map((row: any) => sanitizeProduct(row, allowedBrands));
@@ -60,6 +64,7 @@ export async function importLibraryFromExcel(file: File, allowedBrands?: string[
                 }
             };
             reader.onerror = (err) => reject(err);
+            assertFileWithinLimit(file);
             reader.readAsArrayBuffer(file);
         });
     } catch (error) {
@@ -76,13 +81,14 @@ export async function importStartersFromExcel(file: File, allowedTypes?: string[
                 try {
                     const data = new Uint8Array(e.target?.result as ArrayBuffer);
                     const workbook = XLSX.read(data, { type: 'array' });
+                    assertWorkbookWithinLimits(workbook);
 
                     // Assume first sheet is the data
                     const firstSheetName = workbook.SheetNames[0];
                     const worksheet = workbook.Sheets[firstSheetName];
 
                     // Convert to JSON
-                    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json(worksheet));
 
                     // Map to StarterConfig. P0-4: allowedTypes/allowedBrands undefined -> default cũ.
                     const starters: StarterConfig[] = jsonData.map((row: any) => sanitizeStarter(row, allowedTypes, allowedBrands));
@@ -93,6 +99,7 @@ export async function importStartersFromExcel(file: File, allowedTypes?: string[
                 }
             };
             reader.onerror = (err) => reject(err);
+            assertFileWithinLimit(file);
             reader.readAsArrayBuffer(file);
         });
     } catch (error) {
@@ -442,8 +449,9 @@ export async function importTemplatesFromExcel(file: File): Promise<TemplateImpo
                 try {
                     const data = new Uint8Array(e.target?.result as ArrayBuffer);
                     const workbook = XLSX.read(data, { type: 'array' });
+                    assertWorkbookWithinLimits(workbook);
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json(worksheet));
 
                     resolve(parseTemplateRows(jsonData as MatrixRawRow[]));
                 } catch (err) {
@@ -451,6 +459,7 @@ export async function importTemplatesFromExcel(file: File): Promise<TemplateImpo
                 }
             };
             reader.onerror = (err) => reject(err);
+            assertFileWithinLimit(file);
             reader.readAsArrayBuffer(file);
         });
     } catch (error) {
@@ -703,8 +712,9 @@ export async function importMatchKeysFromExcel(
                 try {
                     const data = new Uint8Array(e.target?.result as ArrayBuffer);
                     const workbook = XLSX.read(data, { type: 'array' });
+                    assertWorkbookWithinLimits(workbook);
                     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet);
+                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet));
 
                     if (jsonData.length === 0) {
                         reject(new Error("Excel file is empty or could not be parsed."));
@@ -717,6 +727,7 @@ export async function importMatchKeysFromExcel(
                 }
             };
             reader.onerror = (err) => reject(err);
+            assertFileWithinLimit(file);
             reader.readAsArrayBuffer(file);
         });
     } catch (error) {

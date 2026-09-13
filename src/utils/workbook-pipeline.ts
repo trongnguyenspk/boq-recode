@@ -16,6 +16,7 @@ import type { StoredTemplateCatalog } from './storage-registry';
 import { normalizePowerKey } from '../types';
 import { defaultMetaFor, isBrandSensitive, normalizeMatchKey, pickPreferredProduct } from './brand-policy';
 import { normalizeCondition, VALID_CONDITIONS } from './template-validation';
+import { assertFileWithinLimit, assertWorkbookWithinLimits } from './excel-safety';
 
 /**
  * Generic workbook boundary for catalog/project edits.
@@ -703,6 +704,7 @@ export function parseWorkbook(input: WorkbookInput): ParsedWorkbook {
     const workbook = typeof input === 'object' && input !== null && 'SheetNames' in input
         ? input as XLSX.WorkBook
         : XLSX.read(input as ArrayBuffer | Uint8Array | string, { type: typeof input === 'string' ? 'binary' : 'array' });
+    assertWorkbookWithinLimits(workbook); // P3.1: chặn workbook vượt giới hạn sheet/dòng/cell
     const issues: WorkbookIssue[] = [];
     const rows = {} as WorkbookRows;
     let legacy = false;
@@ -732,6 +734,7 @@ export function parseWorkbook(input: WorkbookInput): ParsedWorkbook {
 }
 
 export async function readWorkbookFile(file: Blob): Promise<ParsedWorkbook> {
+    assertFileWithinLimit(file as { size?: number }); // P3.1: chặn file vượt giới hạn trước khi đọc
     return parseWorkbook(await file.arrayBuffer());
 }
 
