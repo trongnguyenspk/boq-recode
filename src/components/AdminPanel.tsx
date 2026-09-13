@@ -9,6 +9,7 @@ import { categoryOf, defaultMetaFor, isBrandSensitive, normalizeMatchKey } from 
 import { normalizePowerKey } from '../types';
 import type { MatchKeyImportReport } from '../utils/excel-import';
 import { parseUnknownImportDecision } from '../utils/import-validation';
+import { ConfirmDialog } from './ui/ConfirmDialog';
 
 interface AdminPanelProps {
     library: Product[];
@@ -28,6 +29,10 @@ interface AdminPanelProps {
 }
 
 export function AdminPanel({ library, templates, brands, managedBrands = brands, onUpdateLibrary, onUpdateTemplates, onUpdateBrands, matchKeyMeta = {}, onUpdateMatchKeyMeta, libraryConflicts = [], onClose }: AdminPanelProps) {
+    // P4.3: ConfirmDialog dùng chung thay window.confirm (các hành động phá huỷ).
+    const [confirmState, setConfirmState] = useState<{ message: string; title?: string; confirmLabel?: string; onConfirm: () => void } | null>(null);
+    const requestConfirm = (message: string, onConfirm: () => void, opts?: { title?: string; confirmLabel?: string }) =>
+        setConfirmState({ message, onConfirm, title: opts?.title, confirmLabel: opts?.confirmLabel });
     const [activeTab, setActiveTab] = useState<'products' | 'templates' | 'matchKeys'>('products');
     const [editingProduct, setEditingProduct] = useState<Partial<Product> | null>(null);
     const { showToast } = useToast();
@@ -150,9 +155,9 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
     };
 
     const handleDeleteProduct = (id: string) => {
-        if (confirm('Are you sure you want to delete this product?')) {
+        requestConfirm('Are you sure you want to delete this product?', () => {
             onUpdateLibrary(library.filter(p => p.id !== id));
-        }
+        });
     };
 
     const handleExportLibrary = async () => {
@@ -503,10 +508,10 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                     </button>
                                     <button
                                         onClick={() => {
-                                            if (confirm("WARNING: This will delete ALL products from your library.\n\nAre you sure you want to continue?")) {
+                                            requestConfirm("WARNING: This will delete ALL products from your library.\n\nAre you sure you want to continue?", () => {
                                                 onUpdateLibrary([]);
                                                 showToast("Library cleared!", "success");
-                                            }
+                                            });
                                         }}
                                         className="flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white rounded hover:bg-red-700 transition text-sm"
                                     >
@@ -772,10 +777,10 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                     </button>
                                     <button
                                         onClick={() => {
-                                            if (confirm("WARNING: This will delete ALL starter templates.\n\nAre you sure you want to continue?")) {
+                                            requestConfirm("WARNING: This will delete ALL starter templates.\n\nAre you sure you want to continue?", () => {
                                                 onUpdateTemplates({});
                                                 showToast("Templates cleared!", "success");
-                                            }
+                                            });
                                         }}
                                         className="flex items-center gap-2 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
                                     >
@@ -1606,6 +1611,16 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                     </div>
                 </div>
             )}
+
+            <ConfirmDialog
+                open={confirmState !== null}
+                danger
+                title={confirmState?.title ?? 'Xác nhận'}
+                message={confirmState?.message ?? ''}
+                confirmLabel={confirmState?.confirmLabel ?? 'Xác nhận'}
+                onConfirm={() => { const s = confirmState; setConfirmState(null); s?.onConfirm(); }}
+                onCancel={() => setConfirmState(null)}
+            />
         </div>
     );
 }
