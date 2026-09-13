@@ -3,6 +3,7 @@ import { ChevronDown, ChevronRight } from 'lucide-react';
 import type { BOMItem, Brand, StarterConfig } from '../types';
 import { cn } from '../utils/cn';
 import { isCableLargerThan, getCableSizeLabel } from '../utils/cable-detection';
+import { ConfirmDialog } from './ui/ConfirmDialog';
 
 interface DetailViewProps {
     starters: StarterConfig[];
@@ -30,6 +31,8 @@ export function DetailView({ starters, bom, manualItems = [], onUpdateStarter, o
     const [loadNameValue, setLoadNameValue] = useState('');
     const [editingQuantityId, setEditingQuantityId] = useState<string | null>(null);
     const [quantityValue, setQuantityValue] = useState('');
+    // P4.3: xác nhận xoá starter bằng ConfirmDialog (thay window.confirm).
+    const [pendingDeleteStarter, setPendingDeleteStarter] = useState<StarterConfig | null>(null);
 
     useEffect(() => {
         // Initialize all starters as open when the component mounts or starters change
@@ -183,9 +186,7 @@ export function DetailView({ starters, bom, manualItems = [], onUpdateStarter, o
                                             <button
                                                 onClick={(e) => {
                                                     e.stopPropagation();
-                                                    if (confirm(`Bạn có chắc chắn muốn xóa bộ khởi động "${starter.type} - ${starter.power}kW" cùng toàn bộ linh kiện của nó?`)) {
-                                                        onDeleteStarter(starter.id);
-                                                    }
+                                                    setPendingDeleteStarter(starter);
                                                 }}
                                                 className="text-gray-400 hover:text-red-500 dark:hover:text-red-400 p-0.5 rounded transition-colors ml-1"
                                                 title="Xóa bộ khởi động này"
@@ -490,6 +491,19 @@ export function DetailView({ starters, bom, manualItems = [], onUpdateStarter, o
                     </div>
                 )}
             </div>
+
+            <ConfirmDialog
+                open={pendingDeleteStarter !== null}
+                title="Xoá bộ khởi động"
+                message={pendingDeleteStarter ? `Bạn có chắc chắn muốn xóa bộ khởi động "${pendingDeleteStarter.type} - ${pendingDeleteStarter.powerLabel ?? `${pendingDeleteStarter.power}kW`}" cùng toàn bộ linh kiện của nó?` : ''}
+                confirmLabel="Xoá"
+                danger
+                onConfirm={() => {
+                    if (pendingDeleteStarter) onDeleteStarter?.(pendingDeleteStarter.id);
+                    setPendingDeleteStarter(null);
+                }}
+                onCancel={() => setPendingDeleteStarter(null)}
+            />
         </div>
     );
 }
