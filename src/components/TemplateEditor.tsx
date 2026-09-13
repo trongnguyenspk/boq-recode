@@ -11,6 +11,7 @@
  */
 
 import { useState, useCallback, useEffect } from 'react';
+import { ConfirmDialog } from './ui/ConfirmDialog';
 import {
     X, Save, RotateCcw, Copy, Check, BookOpen,
     Code, Eye, AlertTriangle
@@ -46,6 +47,8 @@ export function TemplateEditor({
     const [copied, setCopied] = useState(false);
     const [hasChanges, setHasChanges] = useState(false);
     const [backupJson, setBackupJson] = useState<string | null>(null);
+    // P4.3: xác nhận đóng khi có thay đổi chưa lưu (thay window.confirm).
+    const [showCloseConfirm, setShowCloseConfirm] = useState(false);
 
     // Initialize with template
     useEffect(() => {
@@ -122,9 +125,7 @@ export function TemplateEditor({
     // Close confirmation
     const handleClose = useCallback(() => {
         if (hasChanges) {
-            if (window.confirm('Bạn có thay đổi chưa lưu. Đóng không lưu?')) {
-                onClose();
-            }
+            setShowCloseConfirm(true);
         } else {
             onClose();
         }
@@ -308,6 +309,16 @@ export function TemplateEditor({
                     </div>
                 </div>
             </div>
+
+            <ConfirmDialog
+                open={showCloseConfirm}
+                title="Đóng không lưu?"
+                message="Bạn có thay đổi chưa lưu. Đóng không lưu?"
+                confirmLabel="Đóng không lưu"
+                danger
+                onConfirm={() => { setShowCloseConfirm(false); onClose(); }}
+                onCancel={() => setShowCloseConfirm(false)}
+            />
         </div>
     );
 }
