@@ -55,6 +55,13 @@ function check(name, cond){ if(cond){pass++; log.push('  ✓ '+name);} else {fai
   await page.waitForTimeout(400);
   check('Confirm removes starter', await page.locator('text=No starters added yet').count()>0);
 
+  // Step 4: Admin panel renders (P4.3 deep migrations live here)
+  await page.getByRole('button',{name:/Admin/i}).click();
+  await page.waitForTimeout(500);
+  check('Admin Panel opens & renders', await page.locator('text=Admin Panel').count()>0);
+  check('Admin shows Product Library', await page.locator('text=Product Library').count()>0);
+  await page.screenshot({path:path.join(SHOTS,'03-admin.png'),fullPage:true});
+
   check('no console errors during smoke', errors.length===0);
 
   await browser.close(); server.close();

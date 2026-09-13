@@ -983,11 +983,11 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                                                                 </div>
                                                                                                 <button
                                                                                                     onClick={() => {
-                                                                                                        if (confirm(`Remove ${comp.matchKey}?`)) {
+                                                                                                        requestConfirm(`Remove ${comp.matchKey}?`, () => {
                                                                                                             const newTemplates = { ...templates };
                                                                                                             newTemplates[type][power] = components.filter((_, i) => i !== idx);
                                                                                                             onUpdateTemplates(newTemplates);
-                                                                                                        }
+                                                                                                        });
                                                                                                     }}
                                                                                                     className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
                                                                                                 >
@@ -1155,12 +1155,12 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                         `• Xung đột brand-agnostic: ${report.conflicts.length}\n` +
                                                         `• Ô code bị xoá trắng (KHÔNG tự xoá): ${report.cleared.length}\n\n` +
                                                         `Thư viện sau khi nhập: ${result.library.length} sản phẩm.\n\nTiếp tục?`;
-                                                    if (confirm(summary)) {
+                                                    requestConfirm(summary, () => {
                                                         onUpdateLibrary(result.library);
                                                         onUpdateMatchKeyMeta?.(result.meta);
                                                         setImportReport(report);
                                                         showToast("Match Keys Imported!", "success");
-                                                    }
+                                                    });
                                                 } catch (error) {
                                                     showToast("Import failed", "error");
                                                 }
@@ -1388,7 +1388,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                 </h3>
                                                 <button
                                                     onClick={() => {
-                                                        if (confirm(`Are you sure you want to delete Match Key "${selectedMatchKey}"?\n\nThis will:\n1. Delete ALL products with this key from the Library.\n2. Remove this key from ALL Starter Templates.`)) {
+                                                        requestConfirm(`Are you sure you want to delete Match Key "${selectedMatchKey}"?\n\nThis will:\n1. Delete ALL products with this key from the Library.\n2. Remove this key from ALL Starter Templates.`, () => {
                                                             // 1. Delete from Library
                                                             const newLibrary = library.filter(p => p.matchKey !== selectedMatchKey);
                                                             onUpdateLibrary(newLibrary);
@@ -1405,7 +1405,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
 
                                                             setSelectedMatchKey(null);
                                                             showToast(`Deleted Match Key: ${selectedMatchKey}`, "success");
-                                                        }
+                                                        });
                                                     }}
                                                     className="flex items-center gap-2 px-3 py-1.5 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded hover:bg-red-200 dark:hover:bg-red-900/50 text-sm font-medium transition"
                                                 >
