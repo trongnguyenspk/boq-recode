@@ -1,146 +1,28 @@
-# 📚 BOQ Generator - Complete Documentation System
+# BOQ Generator — Tài liệu
 
-**Version:** 1.0  
-**Last Updated:** 2025-12-07  
-**Target Length:** ~1,000 pages
+Cập nhật: 2026-09-13 (sau đợt recode). Ứng dụng bóc khối lượng vật tư tủ điện — **SPA client-only** (không máy chủ, dữ liệu trong `localStorage`).
 
----
+## Tài liệu hiện có
 
-## 🚀 BẮT ĐẦU TẠI ĐÂY!
+| Tài liệu | Dành cho | Nội dung |
+|---|---|---|
+| [**HUONG-DAN-SU-DUNG.md**](./HUONG-DAN-SU-DUNG.md) | **Người dùng cuối** | Hướng dẫn thao tác đầy đủ: dự án, nhập phụ tải, sinh BOQ, export/import, backup/restore, Admin (product/template/match key/brand), có ảnh UI. **Đọc file này trước.** |
+| [03-dev-environment.md](./03-dev-environment.md) | Dev | Cài đặt môi trường, `npm run dev/build/preview`, troubleshooting. |
 
-### 📘 [**QUICK REFERENCE - Bảng Tổng Hợp & Tra Cứu Nhanh**](./QUICK-REFERENCE.md)
-> **Đọc file này trước!** Tổng hợp TẤT CẢ kiến thức quan trọng trên 1 trang. Khi cần chi tiết, click link để đọc full document.
+## Ngăn xếp công nghệ (thực tế)
 
-**Content:**
-- ✅ Tổng quan toàn bộ app (1 phút)
-- ✅ Bảng tra cứu technologies, commands
-- ✅ File/folder nào ở đâu
-- ✅ Logic Engine overview
-- ✅ Debug & troubleshooting tips
-- ✅ Quick links tới tất cả docs
+React 19 · TypeScript 5.9 · Vite 7 · Tailwind CSS 4 · **zustand 5** (state + persist) · **SheetJS `xlsx` 0.18.5** (đọc/ghi Excel) · lucide-react · vitest 4. Không backend, không Redux, không ExcelJS.
 
----
+## Mô hình dữ liệu (tóm tắt)
 
-## 📖 Table of Contents
+Ba tầng: **Match Key** (khóa generic, không nhãn hiệu) → **Product** (sản phẩm thật theo Match Key + Brand, trong `boq_library`) → **BOMItem** (dòng BOQ sinh ra). **Starter template** = công thức vật tư `{ StarterType → { tier → dòng } }`; công suất là **text hiển thị** (`powerLabel`) tách khỏi khóa chọn tier (`tierKey`).
 
-### Part I: Foundation (200 pages)
-1. [Project Overview & Architecture](./docs/01-project-overview.md) - 50 pages
-2. [Technology Stack Deep Dive](./docs/02-technology-stack.md) - 40 pages
-3. [Development Environment Setup](./docs/03-dev-environment.md) - 60 pages
-4. [Codebase Structure & Organization](./docs/04-codebase-structure.md) - 50 pages
+`localStorage`: `boq_library`, `boq_templates`, `boq_brands`, `boq_matchkey_meta`, `boq_projects`, `boq_theme`.
 
-### Part II: Core Systems (300 pages)
-5. [Data Layer & Type System](./docs/05-data-layer.md) - 60 pages
-6. [Logic Engine Architecture](./docs/06-logic-engine.md) - 80 pages
-7. [UI Component System](./docs/07-ui-components.md) - 70 pages
-8. [State Management](./docs/08-state-management.md) - 40 pages
-9. [Storage & Backup System](./docs/09-storage-backup.md) - 50 pages
+## Ghi chú về tài liệu cũ
 
-### Part III: Feature Implementation (250 pages)
-10. [Common Logic System](./docs/10-common-logic.md) - 60 pages
-11. [Auto-Selection Rules](./docs/11-auto-selection.md) - 50 pages
-12. [Heat Shrink Logic](./docs/12-heat-shrink.md) - 40 pages
-13. [Busbar Selection System](./docs/13-busbar-selection.md) - 40 pages
-14. [MCT/PCT Logic](./docs/14-mct-pct-logic.md) - 30 pages
-15. [Excel Export/Import](./docs/15-excel-operations.md) - 30 pages
+Bộ tài liệu dev trước đây (Logic Engine, Common Logic, Codebase Structure, Data Layer, State Management, Storage/Backup, Feature Guides, Testing/Advanced, QUICK-REFERENCE, Project Overview, và README "~1,000 trang") đã bị **gỡ bỏ** trong đợt dọn dẹp 2026-09-13: chúng mô tả **kiến trúc TRƯỚC recode** — **Common Logic / Logic Engine đã bị xóa hẳn**, công suất từng là số để tính toán, dùng ExcelJS, có native dialog — nên không còn đúng với app hiện tại và gây hiểu sai. Ngoài ra README cũ ghi số trang mục tiêu (ảo), không phản ánh thực tế.
 
-### Part IV: Development Workflows (150 pages)
-16. [Adding New Features](./docs/16-new-features.md) - 40 pages
-17. [Modifying Existing Features](./docs/17-modify-features.md) - 30 pages
-18. [Creating UI Components](./docs/18-create-components.md) - 30 pages
-19. [Adding Logic Rules](./docs/19-logic-rules.md) - 30 pages
-20. [Debugging Strategies](./docs/20-debugging.md) - 20 pages
+**Nguồn chính xác nhất về hành vi hiện tại là mã nguồn trong `src/`** và tài liệu người dùng ở trên.
 
-### Part V: Testing & Quality (100 pages)
-21. [Testing Methodologies](./docs/21-testing-methods.md) - 30 pages
-22. [Unit Testing Guide](./docs/22-unit-testing.md) - 20 pages
-23. [Integration Testing](./docs/23-integration-testing.md) - 20 pages
-24. [Logic Testing Examples](./docs/24-logic-testing.md) - 30 pages
-
-### Part VI: Maintenance & Operations (100 pages)
-25. [Common Issues & Solutions](./docs/25-troubleshooting.md) - 30 pages
-26. [Performance Optimization](./docs/26-performance.md) - 20 pages
-27. [Data Migration](./docs/27-data-migration.md) - 20 pages
-28. [Version Control](./docs/28-version-control.md) - 15 pages
-29. [Deployment Guide](./docs/29-deployment.md) - 15 pages
-
-### Part VII: Advanced Topics (100 pages)
-30. [Extending Logic Engine](./docs/30-extend-logic.md) - 30 pages
-31. [Custom Rule Development](./docs/31-custom-rules.md) - 30 pages
-32. [Advanced Excel Features](./docs/32-advanced-excel.md) - 20 pages
-33. [Database Schema Evolution](./docs/33-schema-evolution.md) - 20 pages
-
-### Appendices
-- [API Reference](./docs/api-reference.md)
-- [Code Examples Repository](./docs/code-examples.md)
-- [Glossary](./docs/glossary.md)
-- [FAQ](./docs/faq.md)
-- [Changelog](./docs/changelog.md)
-
----
-
-## 🎯 Quick Navigation
-
-### For New Developers
-→ Start with [Part I](#part-i-foundation-200-pages) then [Part IV](#part-iv-development-workflows-150-pages)
-
-### For Maintenance
-→ Jump to [Part VI](#part-vi-maintenance--operations-100-pages)
-
-### For Bug Fixes
-→ See [Debugging Strategies](./docs/20-debugging.md) and [Troubleshooting](./docs/25-troubleshooting.md)
-
-### For New Features
-→ Follow [Adding New Features](./docs/16-new-features.md) → [Testing](./docs/21-testing-methods.md)
-
-### For Logic Changes
-→ Read [Logic Engine](./docs/06-logic-engine.md) → [Logic Rules](./docs/19-logic-rules.md) → [Logic Testing](./docs/24-logic-testing.md)
-
----
-
-## 📝 Document Conventions
-
-### Code Blocks
-- `inline code` - Variables, functions, filenames
-- **Bold** - Important concepts
-- *Italic* - Emphasis
-
-### Diagrams
-- 🔴 Critical components
-- 🟡 Important components  
-- 🟢 Optional components
-
-### Admonitions
-- 💡 **Tip:** Best practices and shortcuts
-- ⚠️ **Warning:** Common pitfalls
-- ❌ **Error:** Things to avoid
-- ✅ **Success:** Correct approach
-
----
-
-## 🔄 Document Status
-
-| Document | Status | Progress |
-|----------|--------|----------|
-| 01-project-overview | 🟢 Ready | 100% |
-| 02-technology-stack | 🟡 In Progress | 60% |
-| 03-dev-environment | ⚪ Planned | 0% |
-| ... | ... | ... |
-
-Legend:
-- 🟢 Complete
-- 🟡 In Progress
-- ⚪ Planned
-
----
-
-## 📞 Support
-
-Questions? Issues? Check:
-1. [FAQ](./docs/faq.md)
-2. [Troubleshooting Guide](./docs/25-troubleshooting.md)
-3. [GitHub Issues](https://github.com/nguyentrongtht-prog/boq-generator/issues)
-
----
-
-*This documentation is a living document. Contributions and improvements are welcome!*
+*(Xem lại nội dung dev cũ nếu cần: `git log`/`git show` các commit trước 2026-09-13.)*

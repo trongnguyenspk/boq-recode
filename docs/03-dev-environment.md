@@ -423,9 +423,10 @@ git commit -m "Resolve conflicts"
 ## 📚 Next Steps
 
 ✅ **Environment ready!** Giờ có thể:
-1. [Đọc Codebase Structure](./04-codebase-structure.md)
-2. [Học Logic Engine](./06-logic-engine.md)
-3. [Tạo Feature Mới](./16-new-features.md)
+1. [Hướng dẫn sử dụng (end-user)](./HUONG-DAN-SU-DUNG.md)
+2. [Chỉ mục tài liệu](./README.md)
+
+> Lưu ý: bộ tài liệu dev cũ (Logic Engine, Common Logic, Codebase Structure…) đã bị **gỡ bỏ** vì mô tả kiến trúc trước recode (không còn đúng). Xem code trong `src/` là nguồn chính xác nhất.
 
 **Happy Coding! 🚀**
 
