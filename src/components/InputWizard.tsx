@@ -147,7 +147,7 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
 
                 const imported = detailed.starters;
                 if (imported.length === 0) {
-                    alert('File không có dòng phụ tải nào. Chưa có gì thay đổi.');
+                    showToast('File không có dòng phụ tải nào. Chưa có gì thay đổi.', 'info');
                     return;
                 }
 

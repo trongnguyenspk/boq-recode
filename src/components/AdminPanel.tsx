@@ -325,14 +325,14 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
         if (!addingPowerTo || !newPowerValue) return;
         const powerKey = normalizePowerKey(newPowerValue);
         if (!powerKey) {
-            alert('Power rating phải là số thập phân không âm.');
+            showToast('Power rating phải là số thập phân không âm.', 'error');
             return;
         }
         const newTemplates = { ...templates };
         const existingPower = Object.keys(newTemplates[addingPowerTo] || {})
             .find(power => normalizePowerKey(power) === powerKey);
         if (existingPower) {
-            alert('Power rating already exists!');
+            showToast('Power rating already exists!', 'error');
             return;
         }
         newTemplates[addingPowerTo][powerKey] = []; // Initialize empty
@@ -344,7 +344,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
     const handleAddType = () => {
         if (!newTypeName) return;
         if (templates[newTypeName]) {
-            alert('Type already exists!');
+            showToast('Type already exists!', 'error');
             return;
         }
         const newTemplates = { ...templates };
@@ -737,7 +737,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                     }
 
                                                     if (report.tiers.length === 0) {
-                                                        alert('File không có dòng dữ liệu hợp lệ nào. Chưa có gì bị thay đổi.');
+                                                        showToast('File không có dòng dữ liệu hợp lệ nào. Chưa có gì bị thay đổi.', 'info');
                                                         return;
                                                     }
 

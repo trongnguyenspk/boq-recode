@@ -142,7 +142,8 @@ describe('InputWizard import decisions', () => {
                 { unknownType: 'skip', unknownBrand: 'skip' },
             );
             expect(onImportStarters).not.toHaveBeenCalled();
-            expect(window.alert).toHaveBeenCalledWith(expect.stringContaining('không có dòng'));
+            // P4.3: alert() đã đổi sang toast.
+            expect(screen.getByText(/không có dòng/i)).toBeTruthy();
         });
     });
 });
