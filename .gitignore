@@ -76,3 +76,6 @@ qa_*.png
 # Local agent/editor dirs
 .claude/
 .agent/
+
+# E2E generated screenshots
+e2e/screenshots/
