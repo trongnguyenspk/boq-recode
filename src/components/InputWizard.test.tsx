@@ -112,8 +112,15 @@ describe('InputWizard import decisions', () => {
         Object.defineProperty(fileInput, 'files', { value: [file] });
         fireEvent.change(fileInput!);
 
+        // P4.3: decision modal (nút bấm) thay prompt gõ ADD/SKIP.
+        expect(await screen.findByText('Giá trị lạ trong file')).toBeTruthy();
+        expect(screen.getByText(/OMEGA/)).toBeTruthy();
+        fireEvent.click(screen.getByRole('button', { name: 'Thêm vào catalog' }));
+        // Append/replace modal.
+        expect(await screen.findByText('Nhập phụ tải')).toBeTruthy();
+        fireEvent.click(screen.getByRole('button', { name: /Thêm vào \(/ }));
+
         await waitFor(() => {
-            expect(window.prompt).toHaveBeenCalledWith(expect.stringContaining('OMEGA'));
             expect(onAddBrand).toHaveBeenCalledWith('OMEGA');
             expect(onAddStarterType).toHaveBeenCalledWith('Valve');
             expect(onImportStarters).toHaveBeenCalledWith(detailedResult.starters, 'append');
@@ -121,7 +128,6 @@ describe('InputWizard import decisions', () => {
     });
 
     it('SKIP re-reads with skip policy and leaves source data untouched', async () => {
-        vi.mocked(window.prompt).mockReturnValue('SKIP');
         vi.mocked(importStartersFromExcelDetailed)
             .mockResolvedValueOnce(detailedResult)
             .mockResolvedValueOnce({ starters: [], issues: detailedResult.issues });
@@ -133,6 +139,10 @@ describe('InputWizard import decisions', () => {
         Object.defineProperty(fileInput, 'files', { value: [file] });
         fireEvent.change(fileInput!);
 
+        // P4.3: chọn "Bỏ qua dòng lạ" trên modal thay vì gõ SKIP.
+        expect(await screen.findByText('Giá trị lạ trong file')).toBeTruthy();
+        fireEvent.click(screen.getByRole('button', { name: 'Bỏ qua dòng lạ' }));
+
         await waitFor(() => {
             expect(importStartersFromExcelDetailed).toHaveBeenCalledTimes(2);
             expect(importStartersFromExcelDetailed).toHaveBeenLastCalledWith(
@@ -142,7 +152,7 @@ describe('InputWizard import decisions', () => {
                 { unknownType: 'skip', unknownBrand: 'skip' },
             );
             expect(onImportStarters).not.toHaveBeenCalled();
-            // P4.3: alert() đã đổi sang toast.
+            // alert() đã đổi sang toast.
             expect(screen.getByText(/không có dòng/i)).toBeTruthy();
         });
     });

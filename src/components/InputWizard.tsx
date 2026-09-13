@@ -4,7 +4,7 @@ import { Plus, Download, Upload, FileSpreadsheet } from 'lucide-react';
 import { normalizePowerKey } from '../types';
 import type { Brand, StarterConfig, StarterType } from '../types';
 import { useToast } from './ui/Toast';
-import { parseUnknownImportDecision } from '../utils/import-validation';
+import { ChoiceDialog } from './ui/ChoiceDialog';
 
 interface InputWizardProps {
     onAddStarter: (starter: StarterConfig) => void;
@@ -47,6 +47,11 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
     const [loadName, setLoadName] = useState('');
     // P1.2b (PA-1): công suất hiển thị là text tự do; mặc định `<tier>kW`, user sửa được.
     const [powerLabel, setPowerLabel] = useState<string>('');
+    // P4.3: modal lựa chọn Promise-based (thay prompt/confirm nhiều nhánh khi import).
+    type ChoiceBtn = { label: string; value: string; variant?: 'primary' | 'danger' | 'neutral' };
+    const [choice, setChoice] = useState<{ message: string; title: string; buttons: ChoiceBtn[]; resolve: (v: string) => void } | null>(null);
+    const ask = (message: string, buttons: ChoiceBtn[], title = 'Chọn thao tác') =>
+        new Promise<string>(resolve => setChoice({ message, title, buttons, resolve }));
 
     // Get available power ratings for selected starter type
     const getAvailablePowers = (): number[] => {
@@ -110,19 +115,19 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
                     detailed.issues.map(issue => `${issue.field}: ${issue.value}`)
                 ));
                 if (unknownValues.length > 0) {
-                    const decision = parseUnknownImportDecision(prompt(
+                    // P4.3: modal nút bấm thay prompt gõ ADD/SKIP. Bỏ nhánh FALLBACK (D-07: brand lạ không fallback).
+                    const decision = await ask(
                         `File có giá trị chưa nằm trong catalog:\n\n` +
                         `${unknownValues.slice(0, 20).map(value => `• ${value}`).join('\n')}` +
-                        `${unknownValues.length > 20 ? '\n…' : ''}\n\n` +
-                        `Gõ ADD để thêm brand/type vào catalog và giữ nguyên, hoặc SKIP để bỏ các dòng đó. ` +
-                        `FALLBACK chỉ áp dụng cho loại khởi động lạ (không áp dụng cho brand). ` +
-                        `Cancel để không nhập file:`
-                    ));
-                    const hasUnknownBrand = detailed.issues.some(issue => issue.field === 'Brand' || issue.field === 'IsolatorBrand');
-                    // D-07: an unknown brand is never rewritten to a default
-                    // brand. Legacy fallback remains available for an unknown
-                    // starter type only, for compatibility with N-47.
-                    if (decision === 'cancel' || (decision === 'fallback' && hasUnknownBrand)) {
+                        `${unknownValues.length > 20 ? '\n…' : ''}`,
+                        [
+                            { label: 'Thêm vào catalog', value: 'add', variant: 'primary' },
+                            { label: 'Bỏ qua dòng lạ', value: 'skip', variant: 'neutral' },
+                            { label: 'Huỷ', value: 'cancel', variant: 'neutral' },
+                        ],
+                        'Giá trị lạ trong file',
+                    );
+                    if (decision !== 'add' && decision !== 'skip') {
                         showToast('Đã huỷ nhập vì chưa chọn cách xử lý giá trị lạ', 'info');
                         return;
                     }
@@ -139,8 +144,8 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
                         typesToAdd = unknownTypes.filter(value => !availableTypes.includes(value));
                     } else {
                         detailed = await importStartersFromExcelDetailed(file, availableTypes, brands, {
-                            unknownType: decision === 'skip' ? 'skip' : 'fallback',
-                            unknownBrand: decision === 'skip' ? 'skip' : 'fallback',
+                            unknownType: 'skip',
+                            unknownBrand: 'skip',
                         });
                     }
                 }
@@ -163,24 +168,35 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
                       `⇒ sẽ không sinh ra vật tư nào.`
                     : '';
 
-                const append = confirm(
-                    `Đọc được ${imported.length} phụ tải từ file.${warn}\n\n` +
-                    `• OK  = THÊM vào danh sách hiện có (${starters.length} phụ tải) — khuyến nghị\n` +
-                    `• Cancel = THAY THẾ toàn bộ danh sách hiện có`
+                const mode = await ask(
+                    `Đọc được ${imported.length} phụ tải từ file.${warn}`,
+                    [
+                        { label: `Thêm vào (${starters.length} hiện có)`, value: 'append', variant: 'primary' },
+                        { label: 'Thay thế toàn bộ', value: 'replace', variant: 'danger' },
+                        { label: 'Huỷ', value: 'cancel', variant: 'neutral' },
+                    ],
+                    'Nhập phụ tải',
                 );
-
-                if (!append) {
-                    const typed = prompt(
-                        `⚠️ THAY THẾ sẽ xoá toàn bộ ${starters.length} phụ tải đang có.\n\n` +
-                        `Gõ chính xác REPLACE để xác nhận:`
+                if (mode !== 'append' && mode !== 'replace') {
+                    showToast('Đã huỷ nhập', 'info');
+                    return;
+                }
+                if (mode === 'replace') {
+                    const ok = await ask(
+                        `⚠️ THAY THẾ sẽ xoá toàn bộ ${starters.length} phụ tải đang có. Tiếp tục?`,
+                        [
+                            { label: 'Thay thế', value: 'yes', variant: 'danger' },
+                            { label: 'Huỷ', value: 'no', variant: 'neutral' },
+                        ],
+                        'Xác nhận thay thế',
                     );
-                    if (typed !== 'REPLACE') {
-                        showToast('Đã huỷ THAY THẾ (xác nhận không khớp)', 'info');
+                    if (ok !== 'yes') {
+                        showToast('Đã huỷ THAY THẾ', 'info');
                         return;
                     }
                 }
 
-                onImportStarters?.(imported, append ? 'append' : 'replace');
+                onImportStarters?.(imported, mode as 'append' | 'replace');
                 brandsToAdd.forEach(value => onAddBrand?.(value));
                 typesToAdd.forEach(value => onAddStarterType?.(value));
                 showToast(`Đã nhập ${imported.length} phụ tải`, 'success');
@@ -429,6 +445,15 @@ export function InputWizard({ onAddStarter, templates, brands, starters = [], on
                     <Plus className="w-5 h-5" /> ADD TO BOQ
                 </button>
             </form>
+
+            <ChoiceDialog
+                open={choice !== null}
+                title={choice?.title ?? ''}
+                message={choice?.message ?? ''}
+                buttons={choice?.buttons ?? []}
+                onChoose={(v) => { const r = choice?.resolve; setChoice(null); r?.(v); }}
+                onCancel={() => { const r = choice?.resolve; setChoice(null); r?.('cancel'); }}
+            />
         </div>
     );
 }
