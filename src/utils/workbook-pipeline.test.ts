@@ -281,4 +281,43 @@ describe('generic workbook pipeline', () => {
         const diff = buildWorkbookDiff(sampleState(), emptyIncomingRows());
         expect(() => applyWorkbookDiff(sampleState(), { ...diff, schemaVersion: 2 })).toThrow(/schema version/);
     });
+
+    // P3.2: legacy workbook shapes — alias sheet names + missing _Meta, and skip action.
+    it('reads a legacy workbook that uses alias sheet names and has no _Meta', () => {
+        const wb = createWorkbook(sampleState());
+        // Drop _Meta and rename canonical sheets to their legacy aliases.
+        const drop = (name: string) => {
+            delete (wb.Sheets as Record<string, unknown>)[name];
+            wb.SheetNames = wb.SheetNames.filter(n => n !== name);
+        };
+        const rename = (from: string, to: string) => {
+            (wb.Sheets as Record<string, unknown>)[to] = (wb.Sheets as Record<string, unknown>)[from];
+            delete (wb.Sheets as Record<string, unknown>)[from];
+            wb.SheetNames = wb.SheetNames.map(n => (n === from ? to : n));
+        };
+        drop('_Meta');
+        rename('Starters', 'Input Data');
+        rename('Templates', 'Template');
+
+        const parsed = parseWorkbook(wb);
+        expect(parsed.legacy).toBe(true);
+        expect(parsed.issues.some(i => i.code === 'MISSING_META')).toBe(true);
+        // Rows are still read through the alias sheet names.
+        expect(parsed.rows.Starters.length).toBeGreaterThan(0);
+        expect(parsed.rows.Templates.length).toBeGreaterThan(0);
+    });
+
+    it('treats a skip-action row as a no-op (no validation error, no state change)', () => {
+        const incoming = emptyIncomingRows();
+        incoming.Starters = [{
+            Action: 'skip', RowKey: 'starter-1', Type: 'DOL', Power: '5.5', Quantity: 0,
+            Brand: 'Schneider', Isolator: 'No', Thermal: 'No', PTC: 'No', Estop: 'No',
+            Humidity: 'No', IsolatorBFP: 'No', EstopBFP: 'No', IsolatorEstopFB: 'No',
+        }];
+        const diff = buildWorkbookDiff(sampleState(), incoming);
+        // skip bypasses quantity validation and produces no change.
+        expect(diff.issues.some(i => i.code === 'INVALID_STARTER_QUANTITY')).toBe(false);
+        const next = applyWorkbookDiff(sampleState(), diff);
+        expect(next.project?.starters).toEqual(sampleState().project?.starters);
+    });
 });
