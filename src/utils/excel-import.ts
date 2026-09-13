@@ -11,7 +11,7 @@ import {
     type SanitizeImportOptions,
 } from './import-validation';
 import * as XLSX from 'xlsx';
-import { assertFileWithinLimit, assertWorkbookWithinLimits, sanitizeParsedRows } from './excel-safety';
+import { readFirstSheetRowsSafe } from './xlsx-parse-boundary';
 
 export interface DetailedProductImportResult {
     products: Product[];
@@ -23,50 +23,16 @@ export interface DetailedStarterImportResult {
     issues: ImportValidationIssue[];
 }
 
-function readFirstSheetRows(file: File): Promise<MatrixRawRow[]> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            try {
-                const data = new Uint8Array(e.target?.result as ArrayBuffer);
-                const workbook = XLSX.read(data, { type: 'array' });
-                assertWorkbookWithinLimits(workbook);
-                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                resolve(sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet)));
-            } catch (err) {
-                reject(err);
-            }
-        };
-        reader.onerror = (err) => reject(err);
-        assertFileWithinLimit(file);
-        reader.readAsArrayBuffer(file);
-    });
+async function readFirstSheetRows(file: File): Promise<MatrixRawRow[]> {
+    // P3.1: qua cửa Worker + timeout (fallback main-thread khi không có Worker).
+    return (await readFirstSheetRowsSafe(file)) as MatrixRawRow[];
 }
 
 export async function importLibraryFromExcel(file: File, allowedBrands?: string[]): Promise<Product[]> {
     try {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = new Uint8Array(e.target?.result as ArrayBuffer);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    assertWorkbookWithinLimits(workbook);
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet));
-
-                    // P0-4: allowedBrands do caller truyền (brands + brand trong library). undefined -> default cũ.
-                    const products: Product[] = jsonData.map((row: any) => sanitizeProduct(row, allowedBrands));
-
-                    resolve(products);
-                } catch (err) {
-                    reject(err);
-                }
-            };
-            reader.onerror = (err) => reject(err);
-            assertFileWithinLimit(file);
-            reader.readAsArrayBuffer(file);
-        });
+        const jsonData = await readFirstSheetRows(file);
+        // P0-4: allowedBrands do caller truyền (brands + brand trong library). undefined -> default cũ.
+        return jsonData.map((row: any) => sanitizeProduct(row, allowedBrands));
     } catch (error) {
         console.error("Library import error:", error);
         throw error;
@@ -75,33 +41,9 @@ export async function importLibraryFromExcel(file: File, allowedBrands?: string[
 
 export async function importStartersFromExcel(file: File, allowedTypes?: string[], allowedBrands?: string[]): Promise<StarterConfig[]> {
     try {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = new Uint8Array(e.target?.result as ArrayBuffer);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    assertWorkbookWithinLimits(workbook);
-
-                    // Assume first sheet is the data
-                    const firstSheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[firstSheetName];
-
-                    // Convert to JSON
-                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json(worksheet));
-
-                    // Map to StarterConfig. P0-4: allowedTypes/allowedBrands undefined -> default cũ.
-                    const starters: StarterConfig[] = jsonData.map((row: any) => sanitizeStarter(row, allowedTypes, allowedBrands));
-
-                    resolve(starters);
-                } catch (err) {
-                    reject(err);
-                }
-            };
-            reader.onerror = (err) => reject(err);
-            assertFileWithinLimit(file);
-            reader.readAsArrayBuffer(file);
-        });
+        const jsonData = await readFirstSheetRows(file);
+        // Map to StarterConfig. P0-4: allowedTypes/allowedBrands undefined -> default cũ.
+        return jsonData.map((row: any) => sanitizeStarter(row, allowedTypes, allowedBrands));
     } catch (error) {
         console.error("Excel import error:", error);
         throw error;
@@ -443,25 +385,8 @@ export interface TemplateImportResult {
  */
 export async function importTemplatesFromExcel(file: File): Promise<TemplateImportResult> {
     try {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = new Uint8Array(e.target?.result as ArrayBuffer);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    assertWorkbookWithinLimits(workbook);
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json(worksheet));
-
-                    resolve(parseTemplateRows(jsonData as MatrixRawRow[]));
-                } catch (err) {
-                    reject(err);
-                }
-            };
-            reader.onerror = (err) => reject(err);
-            assertFileWithinLimit(file);
-            reader.readAsArrayBuffer(file);
-        });
+        const jsonData = await readFirstSheetRows(file);
+        return parseTemplateRows(jsonData as MatrixRawRow[]);
     } catch (error) {
         console.error("Template import error:", error);
         throw error;
@@ -706,30 +631,11 @@ export async function importMatchKeysFromExcel(
     meta: MatchKeyMetaMap = {}
 ): Promise<MatchKeyImportResult> {
     try {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = new Uint8Array(e.target?.result as ArrayBuffer);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    assertWorkbookWithinLimits(workbook);
-                    const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const jsonData = sanitizeParsedRows(XLSX.utils.sheet_to_json<MatrixRawRow>(worksheet));
-
-                    if (jsonData.length === 0) {
-                        reject(new Error("Excel file is empty or could not be parsed."));
-                        return;
-                    }
-
-                    resolve(applyMatchKeyMatrixRows(jsonData, currentLibrary, brands, meta));
-                } catch (err) {
-                    reject(err);
-                }
-            };
-            reader.onerror = (err) => reject(err);
-            assertFileWithinLimit(file);
-            reader.readAsArrayBuffer(file);
-        });
+        const jsonData = await readFirstSheetRows(file);
+        if (jsonData.length === 0) {
+            throw new Error("Excel file is empty or could not be parsed.");
+        }
+        return applyMatchKeyMatrixRows(jsonData, currentLibrary, brands, meta);
     } catch (error) {
         console.error("Match Key import error:", error);
         throw error;

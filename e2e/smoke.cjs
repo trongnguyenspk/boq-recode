@@ -3,7 +3,9 @@
  * screenshot + assert. Chạy: `npm run build && node e2e/smoke.cjs`.
  */
 const http = require('http'); const fs = require('fs'); const path = require('path');
+const os = require('os');
 const { chromium } = require('playwright');
+const XLSX = require('xlsx');
 const ROOT = path.join(process.cwd(), 'dist');
 const SHOTS = path.join(process.cwd(), 'e2e', 'screenshots');
 const MIME = { '.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json','.woff2':'font/woff2','.png':'image/png' };
@@ -28,6 +30,28 @@ function check(name, cond){ if(cond){pass++; log.push('  ✓ '+name);} else {fai
   check('app loads (Input Wizard)', await page.locator('text=Input Wizard').count()>0);
   check('no Common Logic tab (P2-del)', await page.locator('button:has-text("Common Logic")').count()===0);
   check('powerLabel field present (P1.2b)', await page.getByPlaceholder(/biến tần/i).count()>0);
+
+  // Step 1.5: P3.1 — import a REAL .xlsx so the parse runs in the actual Chromium Web Worker.
+  // Forcing an unknown Brand makes the decision modal list the parsed cell → proves the worker
+  // returned real row content end-to-end (not just that the app didn't crash).
+  {
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet([{ Type: 'DOL', Brand: 'ZZBRAND_E2E', Power: '5.5', Quantity: 1, LoadName: 'WORKER-E2E' }]);
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    const xlsxPath = path.join(os.tmpdir(), 'boq-worker-e2e.xlsx');
+    XLSX.writeFile(wb, xlsxPath);
+    page.once('filechooser', fc => fc.setFiles(xlsxPath).catch(()=>{}));
+    await page.getByRole('button', { name: /Nhập Input/i }).click();
+    const modal = page.getByText('Giá trị lạ trong file');
+    let workerOk = false;
+    try { await modal.waitFor({ timeout: 8000 }); workerOk = await page.locator('text=ZZBRAND_E2E').count() > 0; } catch {}
+    check('P3.1 real Web Worker parses imported .xlsx (unknown value surfaced)', workerOk);
+    await page.screenshot({ path: path.join(SHOTS, '00-worker-import.png'), fullPage: true });
+    // dismiss modal without mutating catalog (Escape = cancel, no re-read, no write)
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(300);
+    check('import decision modal dismissed (no write on cancel)', await page.getByText('Giá trị lạ trong file').count()===0);
+  }
 
   // Step 2: add a starter with defaults (DOL, first power, Schneider)
   await page.getByRole('button',{name:/ADD TO BOQ/i}).click();
