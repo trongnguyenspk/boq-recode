@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { FolderOpen, Plus, Trash2, ChevronDown, Save, X } from 'lucide-react';
 import { useProjectStore, useProjects, useCurrentProjectId } from '../stores/projectStore';
 import type { StarterConfig, BOMItem } from '../types';
+import { ConfirmDialog } from './ui/ConfirmDialog';
 
 interface ProjectSelectorProps {
     starters: StarterConfig[];
@@ -82,15 +83,23 @@ export function ProjectSelector({
         setIsOpen(false);
     };
 
+    // P4.3: thay window.confirm bằng ConfirmDialog dùng chung.
+    const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null);
+
     const handleDeleteProject = (projectId: string, e: React.MouseEvent) => {
         e.stopPropagation();
-        if (confirm('Xóa dự án này? Hành động này không thể hoàn tác.')) {
-            const deletingCurrent = projectId === currentProjectId;
-            deleteProject(projectId);
-            // Deleting the selected project is also an explicit "no project"
-            // state; do not leave its rows on the working board.
-            if (deletingCurrent) onLoadProject([], [], {});
-        }
+        setPendingDeleteId(projectId);
+    };
+
+    const confirmDeleteProject = () => {
+        const projectId = pendingDeleteId;
+        if (!projectId) return;
+        const deletingCurrent = projectId === currentProjectId;
+        deleteProject(projectId);
+        // Deleting the selected project is also an explicit "no project"
+        // state; do not leave its rows on the working board.
+        if (deletingCurrent) onLoadProject([], [], {});
+        setPendingDeleteId(null);
     };
 
     const handleSaveProject = () => {
@@ -252,6 +261,17 @@ export function ProjectSelector({
                     onClick={() => setIsOpen(false)}
                 />
             )}
+
+            {/* P4.3: xác nhận xoá dự án (thay window.confirm) */}
+            <ConfirmDialog
+                open={pendingDeleteId !== null}
+                title="Xoá dự án"
+                message="Xóa dự án này? Hành động này không thể hoàn tác."
+                confirmLabel="Xoá"
+                danger
+                onConfirm={confirmDeleteProject}
+                onCancel={() => setPendingDeleteId(null)}
+            />
         </div>
     );
 }
