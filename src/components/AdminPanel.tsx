@@ -277,7 +277,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
     };
 
     // --- Template Logic ---
-    const handleAddComponent = () => {
+    const handleAddComponent = async () => {
         const matchKey = normalizeMatchKey(newComponentKey);
         if (!addingComponentTo || !matchKey) return;
         const { type, power } = addingComponentTo;
@@ -320,7 +320,12 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
             } else {
                 // If fields are missing but user wants to proceed, we could alert or just add the template item.
                 // For now, let's require at least iBom and Description for new products to avoid bad data.
-                if (!confirm("New product detected but details missing. Add to template anyway? (Product will be missing in Library)")) {
+                const ok = await ask(
+                    "New product detected but details missing. Add to template anyway? (Product will be missing in Library)",
+                    [{ label: 'Vẫn thêm', value: 'yes', variant: 'primary' }, { label: 'Huỷ', value: 'no', variant: 'neutral' }],
+                    'Sản phẩm thiếu thông tin',
+                );
+                if (ok !== 'yes') {
                     return;
                 }
             }
@@ -746,11 +751,13 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                         const list = report.invalidConditions.slice(0, 10)
                                                             .map(e => `  • Dòng ${e.row}: ${e.type} ${e.power}kW · ${e.matchKey} · Condition="${e.condition}"`)
                                                             .join('\n');
-                                                        alert(
+                                                        await ask(
                                                             `❌ Không nhập được: ${report.invalidConditions.length} dòng có Condition không hợp lệ.\n\n` +
                                                             `${list}${report.invalidConditions.length > 10 ? '\n  …' : ''}\n\n` +
                                                             `Giá trị hợp lệ: ${VALID_CONDITIONS.join(', ')}\n\n` +
-                                                            `Hãy sửa file rồi nhập lại. Chưa có gì bị thay đổi.`
+                                                            `Hãy sửa file rồi nhập lại. Chưa có gì bị thay đổi.`,
+                                                            [{ label: 'Đã hiểu', value: 'ok', variant: 'neutral' }],
+                                                            'Không nhập được',
                                                         );
                                                         return;
                                                     }
@@ -769,7 +776,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                           `(${mergePreview.report.collisions.slice(0, 5).map(c => `${c.type} ${c.power}kW: ${c.rawPowers.join(' / ')}`).join(', ')}).`
                                                         : '';
 
-                                                    const ok = confirm(
+                                                    const ok = await ask(
                                                         `Nhập ${report.rows} dòng từ file.\n\n` +
                                                         `SẼ CẬP NHẬT ${report.tiers.length} mức công suất:\n${tierList}` +
                                                         `${report.tiers.length > 12 ? '\n  …' : ''}\n\n` +
@@ -778,9 +785,11 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                         `${report.skipped > 0 ? `\nBỏ qua ${report.skipped} dòng thiếu StarterType/Power/MatchKey.` : ''}` +
                                                         `${report.fixedQuantities.length > 0 ? `\nChuẩn hoá ${report.fixedQuantities.length} Quantity không hợp lệ về 1.` : ''}` +
                                                         collisionWarning +
-                                                        `\n\nTiếp tục?`
+                                                        `\n\nTiếp tục?`,
+                                                        [{ label: 'Tiếp tục', value: 'yes', variant: 'primary' }, { label: 'Huỷ', value: 'no', variant: 'neutral' }],
+                                                        'Nhập template',
                                                     );
-                                                    if (!ok) { showToast('Đã huỷ nhập template', 'info'); return; }
+                                                    if (ok !== 'yes') { showToast('Đã huỷ nhập template', 'info'); return; }
 
                                                     onUpdateTemplates(mergePreview.templates);
                                                     showToast(`Đã cập nhật ${report.tiers.length} mức công suất`, "success");
@@ -1191,7 +1200,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                         <Upload className="w-4 h-4" /> Import Matrix
                                     </button>
                                     <button
-                                        onClick={() => {
+                                        onClick={async () => {
                                             const doomed = library.filter(p => p.matchKey);
                                             // Sản phẩm mang brand KHÔNG nằm trong danh sách brand hiện tại (vd OMEGA)
                                             // sẽ không được Import Matrix tạo lại ⇒ phải cảnh báo rõ trước khi xoá.
@@ -1206,11 +1215,14 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                 (orphanBrands.length > 0
                                                     ? `• ${orphanBrands.join(', ')}: brand không nằm trong danh sách hiện tại ⇒ Import Matrix sẽ KHÔNG tạo lại được.\n`
                                                     : '') +
-                                                `\nHãy Export Matrix / Backup trước nếu chưa!\n\nGõ chính xác CLEAR để xác nhận:`;
+                                                `\nHãy Export Matrix / Backup trước nếu chưa!`;
 
-                                            const typed = prompt(warning);
-                                            if (typed !== 'CLEAR') {
-                                                if (typed !== null) showToast('Đã huỷ — bạn chưa gõ đúng chữ CLEAR', 'info');
+                                            const ok = await ask(warning, [
+                                                { label: 'Xoá tất cả', value: 'yes', variant: 'danger' },
+                                                { label: 'Huỷ', value: 'no', variant: 'neutral' },
+                                            ], 'Xoá sản phẩm có Match Key');
+                                            if (ok !== 'yes') {
+                                                showToast('Đã huỷ xoá', 'info');
                                                 return;
                                             }
                                             onUpdateLibrary(library.filter(p => !p.matchKey));
@@ -1319,12 +1331,15 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                                                 <div key={brand} className="flex justify-between items-center p-2 border-b border-gray-200 dark:border-gray-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/50">
                                                     <span className="text-gray-900 dark:text-gray-100">{brand}</span>
                                                     <button
-                                                        onClick={() => {
+                                                        onClick={async () => {
                                                             const productsWithBrand = library.filter(p => p.brand === brand);
                                                             if (productsWithBrand.length > 0) {
-                                                                if (!confirm(`Brand "${brand}" has ${productsWithBrand.length} products.\n\nDelete brand and REMOVE these products?`)) {
-                                                                    return;
-                                                                }
+                                                                const ok = await ask(
+                                                                    `Brand "${brand}" có ${productsWithBrand.length} sản phẩm.\n\nXoá nhãn hiệu và XOÁ luôn các sản phẩm này?`,
+                                                                    [{ label: 'Xoá', value: 'yes', variant: 'danger' }, { label: 'Huỷ', value: 'no', variant: 'neutral' }],
+                                                                    'Xoá nhãn hiệu',
+                                                                );
+                                                                if (ok !== 'yes') return;
                                                                 // Remove products
                                                                 onUpdateLibrary(library.filter(p => p.brand !== brand));
                                                             }
