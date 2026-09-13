@@ -8,8 +8,8 @@ import { findMatchKeyMismatches } from '../utils/boq-logic';
 import { categoryOf, defaultMetaFor, isBrandSensitive, normalizeMatchKey } from '../utils/brand-policy';
 import { normalizePowerKey } from '../types';
 import type { MatchKeyImportReport } from '../utils/excel-import';
-import { parseUnknownImportDecision } from '../utils/import-validation';
 import { ConfirmDialog } from './ui/ConfirmDialog';
+import { ChoiceDialog } from './ui/ChoiceDialog';
 
 interface AdminPanelProps {
     library: Product[];
@@ -33,6 +33,11 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
     const [confirmState, setConfirmState] = useState<{ message: string; title?: string; confirmLabel?: string; onConfirm: () => void } | null>(null);
     const requestConfirm = (message: string, onConfirm: () => void, opts?: { title?: string; confirmLabel?: string }) =>
         setConfirmState({ message, onConfirm, title: opts?.title, confirmLabel: opts?.confirmLabel });
+    // P4.3: modal lựa chọn nhiều nút (Promise) thay prompt/confirm nhiều nhánh khi import.
+    type ChoiceBtn = { label: string; value: string; variant?: 'primary' | 'danger' | 'neutral' };
+    const [choice, setChoice] = useState<{ message: string; title: string; buttons: ChoiceBtn[]; resolve: (v: string) => void } | null>(null);
+    const ask = (message: string, buttons: ChoiceBtn[], title = 'Chọn thao tác') =>
+        new Promise<string>(resolve => setChoice({ message, title, buttons, resolve }));
     const [activeTab, setActiveTab] = useState<'products' | 'templates' | 'matchKeys'>('products');
     const [editingProduct, setEditingProduct] = useState<Partial<Product> | null>(null);
     const { showToast } = useToast();
@@ -187,18 +192,20 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
             ));
 
             if (unknownBrands.length > 0) {
-                const decision = parseUnknownImportDecision(prompt(
+                // P4.3: modal nút bấm thay prompt gõ ADD/SKIP.
+                const decision = await ask(
                     `File có nhãn hiệu chưa nằm trong catalog:\n\n` +
                     `${unknownBrands.slice(0, 20).map(value => `• ${value}`).join('\n')}` +
-                    `${unknownBrands.length > 20 ? '\n…' : ''}\n\n` +
-                    `Gõ ADD để thêm vào catalog và giữ nguyên, hoặc SKIP để bỏ các dòng đó. ` +
-                    `Không tự đổi nhãn hiệu lạ về nhãn hiệu mặc định. Cancel để không nhập file:`
-                ));
-
-                // D-07: the explicit catalog import flow must never silently
-                // rewrite an unknown brand to Schneider. Keep the fallback
-                // branch in the compatibility parser, but reject it here.
-                if (decision === 'cancel' || decision === 'fallback') {
+                    `${unknownBrands.length > 20 ? '\n…' : ''}`,
+                    [
+                        { label: 'Thêm vào catalog', value: 'add', variant: 'primary' },
+                        { label: 'Bỏ qua dòng lạ', value: 'skip', variant: 'neutral' },
+                        { label: 'Huỷ', value: 'cancel', variant: 'neutral' },
+                    ],
+                    'Nhãn hiệu lạ trong file',
+                );
+                // D-07: brand lạ không bao giờ tự đổi về mặc định — chỉ add hoặc skip.
+                if (decision !== 'add' && decision !== 'skip') {
                     showToast('Đã huỷ nhập vì chưa chọn cách xử lý brand lạ', 'info');
                     return;
                 }
@@ -206,7 +213,7 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                     brandsToAdd = unknownBrands.filter(value => !managedBrands.includes(value));
                 } else {
                     detailed = await importLibraryFromExcelDetailed(file, allowedBrands, {
-                        unknownBrand: decision === 'skip' ? 'skip' : 'fallback',
+                        unknownBrand: 'skip',
                     });
                 }
             }
@@ -217,14 +224,22 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                 return;
             }
 
-            // P0-3: mặc định GỘP (merge) an toàn; THAY THẾ (replace) phải gõ xác nhận.
-            const mergeChosen = confirm(
-                `Nhập ${imported.length} sản phẩm từ Excel.\n\n` +
-                `• OK  = GỘP (merge) vào thư viện hiện có (${library.length} SP) — khuyến nghị\n` +
-                `• Cancel = chế độ THAY THẾ (replace) toàn bộ thư viện`
+            // P4.3: modal nút bấm thay confirm/prompt. Mặc định GỘP an toàn; THAY THẾ cần xác nhận.
+            const mode = await ask(
+                `Nhập ${imported.length} sản phẩm từ Excel.`,
+                [
+                    { label: `Gộp vào (${library.length} SP)`, value: 'merge', variant: 'primary' },
+                    { label: 'Thay thế toàn bộ', value: 'replace', variant: 'danger' },
+                    { label: 'Huỷ', value: 'cancel', variant: 'neutral' },
+                ],
+                'Nhập sản phẩm',
             );
+            if (mode !== 'merge' && mode !== 'replace') {
+                showToast('Đã huỷ nhập', 'info');
+                return;
+            }
 
-            if (mergeChosen) {
+            if (mode === 'merge') {
                 // MERGE theo (matchKey||code)|brand — cùng khoá với App.handleImportToLibrary
                 const keyOf = (p: Product) => `${p.matchKey || p.code || p.ibomCode || p.id}|${p.brand}`;
                 const libMap = new Map(library.map(p => [keyOf(p), p]));
@@ -239,12 +254,16 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                 if (brandsToAdd.length > 0) onUpdateBrands(Array.from(new Set([...managedBrands, ...brandsToAdd])));
                 showToast(`Đã GỘP: ${added} mới, ${updated} cập nhật`, "success");
             } else {
-                const typed = prompt(
-                    `⚠️ THAY THẾ sẽ XOÁ toàn bộ ${library.length} sản phẩm hiện có và thay bằng ${imported.length} sản phẩm mới.\n\n` +
-                    `Hãy Export backup trước nếu chưa!\n\nGõ chính xác REPLACE để xác nhận:`
+                const ok = await ask(
+                    `⚠️ THAY THẾ sẽ XOÁ toàn bộ ${library.length} sản phẩm hiện có và thay bằng ${imported.length} sản phẩm mới. Hãy Export backup trước nếu chưa!`,
+                    [
+                        { label: 'Thay thế', value: 'yes', variant: 'danger' },
+                        { label: 'Huỷ', value: 'no', variant: 'neutral' },
+                    ],
+                    'Xác nhận thay thế thư viện',
                 );
-                if (typed !== 'REPLACE') {
-                    showToast("Đã huỷ THAY THẾ (xác nhận không khớp)", "info");
+                if (ok !== 'yes') {
+                    showToast("Đã huỷ THAY THẾ", "info");
                 } else {
                     onUpdateLibrary(imported);
                     if (brandsToAdd.length > 0) onUpdateBrands(Array.from(new Set([...managedBrands, ...brandsToAdd])));
@@ -1620,6 +1639,15 @@ export function AdminPanel({ library, templates, brands, managedBrands = brands,
                 confirmLabel={confirmState?.confirmLabel ?? 'Xác nhận'}
                 onConfirm={() => { const s = confirmState; setConfirmState(null); s?.onConfirm(); }}
                 onCancel={() => setConfirmState(null)}
+            />
+
+            <ChoiceDialog
+                open={choice !== null}
+                title={choice?.title ?? ''}
+                message={choice?.message ?? ''}
+                buttons={choice?.buttons ?? []}
+                onChoose={(v) => { const r = choice?.resolve; setChoice(null); r?.(v); }}
+                onCancel={() => { const r = choice?.resolve; setChoice(null); r?.('cancel'); }}
             />
         </div>
     );
